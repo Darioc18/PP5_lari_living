@@ -1,0 +1,1 @@
+web: gunicorn lari_living.wsgi
