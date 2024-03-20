@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %}Lari Living | Create Testimonial{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<h2>Testimonials</h2>
+<ul>
+  {% for testimonial in testimonials %}
+    <li>{{ testimonial.content }} 
+      {% if user.is_superuser or testimonial.user == user %}
+        <a href="{% url 'testimonial_edit' testimonial.pk %}">Edit</a>
+         <a href="{% url 'testimonial_confirm_delete' testimonial.pk %}">Delete</a>        
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+<a href="{% url 'testimonial_create' %}">Create Testimonial</a>
+{% endblock %}

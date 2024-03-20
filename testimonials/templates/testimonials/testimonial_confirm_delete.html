@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %}Lari Living | Create Testimonial{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<h2>Delete Testimonial</h2>
+<p>Are you sure you want to delete "{{ testimonial.content }}"?</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Confirm Delete</button>
+</form>
+{% endblock %}
