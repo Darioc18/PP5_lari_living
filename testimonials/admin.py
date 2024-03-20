@@ -1,3 +1,14 @@
-from django.contrib import admin
+"""imports for admin page"""
 
-# Register your models here.
+from django.contrib import admin
+from .models import Testimonial
+
+@admin.register(Testimonial)
+class TestimonialAdmin(admin.ModelAdmin):
+    """Allows admin to manage Testimonials in the admin panel"""
+    list_display = (
+        'user',
+        'content',
+        'created_on'
+    )
+    list_filter = ('created_on',)
