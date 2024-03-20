@@ -1,4 +1,4 @@
-"""Services Models"""
+"""Testimonial Model"""
 
 from django.db import models
 from django.urls import reverse
