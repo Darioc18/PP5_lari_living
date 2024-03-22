@@ -17,9 +17,13 @@ def subscribe_form(request):
     if request.method == 'POST':
         subscribe_form = SubscibersForm(request.POST)
         if subscribe_form.is_valid():
-            subscribe_form.save()
-            messages.success(request, 'Subscription Successful')
-            return redirect(reverse('home'))  # Redirect after form submission
+            email = subscribe_form.cleaned_data.get('email')
+            if Subscribers.objects.filter(email=email).exists():
+                messages.warning(request, 'You are already subscribed.')
+            else:
+                subscribe_form.save()
+                messages.success(request, 'Subscription Successful')
+                return redirect(reverse('home'))  # Redirect after form submission
             
     else:
         subscribe_form = SubscibersForm()
