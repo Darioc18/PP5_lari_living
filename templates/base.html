@@ -112,7 +112,21 @@
     </header>
 
     {% if messages %}
-        <div class="message-container"></div>
+        <div class="message-container">
+            {% for message in messages %}
+                {% with message.level as level %}
+                    {% if level == 40 %}
+                        {% include 'includes/toasts/toast_error.html' %}
+                    {% elif level == 30 %}
+                        {% include 'includes/toasts/toast_warning.html' %}
+                    {% elif level == 25 %}
+                        {% include 'includes/toasts/toast_success.html' %}
+                    {% else %}
+                        {% include 'includes/toasts/toast_info.html' %}
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        </div>
     {% endif %}
 
     {% block page_header %}
@@ -138,11 +152,11 @@
                 </div>
 
                 <div class="col-sm-12 col-md-4">
-                    {% for message in messages %}
+                    <!-- {% for message in messages %}
                         <div class="alert alert-success">
                             {{ message }}
                         </div>
-                        {% endfor %}
+                        {% endfor %} -->
                     <!-- Subscribe -->
                     <div class="footer-header mt-4">
                         <h6 class="text-uppercase mb-4"><strong>Subscribe to Newsletter</strong></h6>
@@ -181,6 +195,9 @@
     </footer>
 
     {% block postloadjs %}
+    <script type="text/javascript">
+        $('.toast').toast('show');
+    </script>
     {% endblock %}
 
     
