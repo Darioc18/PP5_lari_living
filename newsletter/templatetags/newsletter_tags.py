@@ -1,5 +1,7 @@
+"""Custom template tags for rendering newsletter-related forms."""
+
 from django import template
-from newsletter.forms import SubscibersForm  # Adjust the import path as needed
+from newsletter.forms import SubscibersForm
 
 register = template.Library()
 
