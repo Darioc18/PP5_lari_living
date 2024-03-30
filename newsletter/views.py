@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse
+from django.contrib.auth.decorators import login_required
 from .forms import SubscibersForm, MailMessageForm
 from .models import Subscribers
 from django.contrib import messages
@@ -33,8 +34,12 @@ def subscribe_form(request):
     }
     return render(request, 'home\index.html', context)
 
-
+@login_required
 def mail_letter(request):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     emails = Subscribers.objects.all()
     df = read_frame(emails, fieldnames=['email'])
     mail_list = df['email'].values.tolist()

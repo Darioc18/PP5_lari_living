@@ -23,5 +23,7 @@
     </li>
   {% endfor %}
 </ul>
+{% if user.is_authenticated %}
 <a href="{% url 'testimonial_create' %}">Create Testimonial</a>
+{% endif %}
 {% endblock %}
