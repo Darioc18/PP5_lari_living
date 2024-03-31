@@ -1,1 +1,1 @@
-web: gunicorn lari_living.wsgi
+web: gunicorn lari_living.wsgi:application
