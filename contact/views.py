@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect
 from django.views import View
 from .forms import ContactForm
 from django.core.mail import send_mail
 from django.conf import settings
 from django.urls import reverse_lazy
 from django.views.generic import FormView
+from django.contrib import messages
 
 class ContactView(FormView):
     """
@@ -12,7 +12,7 @@ class ContactView(FormView):
     """
     template_name = 'contact/contact.html'
     form_class = ContactForm
-    success_url = reverse_lazy('contact_success')
+    success_url = reverse_lazy('contact')
 
     def form_valid(self, form):
         """
@@ -35,11 +35,8 @@ class ContactView(FormView):
             [settings.EMAIL_HOST_USER],
             fail_silently=False,
         )
-        return super().form_valid(form)
 
-class ContactSuccessView(View):
-    """
-    View for displaying a success message after the contact form is submitted.
-    """
-    def get(self, request):
-        return render(request, 'contact/contact_success.html')
+        # Success message
+        messages.success(self.request, "Your message has been sent successfully")
+
+        return super().form_valid(form)
