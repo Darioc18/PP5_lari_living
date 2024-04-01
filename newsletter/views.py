@@ -21,6 +21,7 @@ def subscribe_form(request):
             email = subscribe_form.cleaned_data.get('email')
             if Subscribers.objects.filter(email=email).exists():
                 messages.warning(request, 'You are already subscribed.')
+                return redirect(reverse('home'))
             else:
                 subscribe_form.save()
                 messages.success(request, 'Subscription Successful')
