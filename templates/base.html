@@ -1,7 +1,7 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
 {% load newsletter_tags %}
     {% block meta %}
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -11,6 +11,10 @@
         content="Lari Living - Discover our carefully curated selection of premium sofas, dining sets, and more. Transform your living space with timeless style and exceptional pieces">
         <meta name="keywords" content="Lari Living, luxury furniture, premium sofas, high-end dining sets, timeless elegance, curated furniture collection, contemporary home decor, designer furniture brands, elegant interior decor, designer home accessories">
         <meta name="author" content="Dario Covella">
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
         <!-- Favicon -->
         <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon.ico' %}">
     {% endblock %}
@@ -45,8 +49,8 @@
     <header class="container-fluid fixed-top">
         <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h2 class="logo-font text-black my-0"><strong>Lari</strong> Living</h2>
+                <a href="{% url 'home' %}" class="nav-link main-logo-link" aria-label="home">
+                    <img src="{% static 'images/logo.png'%}" alt="Lari Living Logo" class="logo-img">
                 </a>
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
@@ -66,10 +70,9 @@
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                     <li class="list-inline-item dropdown">
-                        <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="text-grey nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
-                                <div><i class="fas fa-user fa-lg"></i></div>
-                                <p class="my-0">My Account</p>
+                                <div><span class="pr-3 text-capitalize username">{{ user.username }}</span><i class="fas fa-user fa-lg"></i></div>
                             </div>
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -87,16 +90,13 @@
                         </div>
                     </li>
                     <li class="list-inline-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
+                        <a class="text-grey nav-link px-1" href="{% url 'view_bag' %}">
                             <div class="text-center">
-                                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                                <p class="my-0">
-                                    {% if grand_total %}
-                                        ${{ grand_total|floatformat:2 }}
-                                    {% else %}
-                                        $0.00
+                                <div><i class="fas fa-shopping-bag fa-lg"></i>
+                                    {% if product_count %}
+                                    <span class='bag-badge'>{{ product_count }}</span>
                                     {% endif %}
-                                </p>
+                                </div>
                             </div>
                         </a>
                     </li>
@@ -111,12 +111,7 @@
                 {% include 'includes/mobile-top-header.html' %}
                 {% include 'includes/main-nav.html' %}
             </nav>
-        </div>
-        <div id="delivery-banner" class="row text-center">
-            <div class="col bg-black text-white">
-                <h4 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>                
-            </div>            
-        </div>
+        </div>        
     </header>
 
     {% if messages %}
@@ -165,7 +160,7 @@
                             {{ message }}
                         </div>
                         {% endfor %} -->
-                    <!-- Subscribe -->
+                    <!-- Subscribe to Newsletter -->
                     <div class="footer-header mt-4">
                         <h6 class="text-uppercase mb-4"><strong>Subscribe to Newsletter</strong></h6>
                     </div> 

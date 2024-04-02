@@ -1,3 +1,68 @@
+/* Global Styles */
+:root {
+    --color-grey: #515151;
+    --color-white: #fff;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #515151;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.text-grey {
+    color: var(--color-grey) !important;
+}
+
+.logo-font {
+    text-transform: uppercase;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+/* Home Page */
+
+.image-overlay {
+    background-image: url('/static/images/homepage.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+
+}
+
+.image-overlay h1,
+.image-overlay p,
+.image-overlay .btn {
+    margin-bottom: 20px;
+}
+
+/* Navigation Bar */
+
+.navbar {
+    padding: 0;
+}
+
+.navbar ul a {
+    text-transform: uppercase;
+    color: var(--color-grey);
+    font-size: 20px;
+    font-weight: 400 !important;
+}
+
+.logo-img {
+    height: 100px;
+}
+
 .btt-button {
     height: 42px;
     width: 42px;
@@ -106,20 +171,21 @@ input[name='q']::placeholder {
     color: #aab7c4;
 }
 
+.allauth-form-inner-content a,
 .allauth-form-inner-content button,
 .allauth-form-inner-content input[type='submit'] {
     /* btn */
     display: inline-block;
     font-weight: 400;
-    color: #fff;
+    color: var(--color-grey);
     text-align: center;
     vertical-align: middle;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: #000;
-    border: 1px solid #000;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-grey);
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -129,17 +195,17 @@ input[name='q']::placeholder {
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
+.allauth-form-inner-content a:hover,
 .allauth-form-inner-content button:hover,
 .allauth-form-inner-content input[type='submit']:hover {
-    color: #fff;
-    background-color: #222;
-    border-color: #222;
+    color: var(--color-white);
+    background-color: var(--color-grey);
+    border-color: var(--color-white);
 }
 
-.allauth-form-inner-content a {
+/* .allauth-form-inner-content a {
     color: #17a2b8;
-    /* text-info */
-}
+} */
 
 /* Product Form */
 
@@ -181,9 +247,9 @@ input[name='q']::placeholder {
         z-index: 1030;
     }
 
-    .header-container {
+    /* .header-container {
         padding-top: 164px;
-    }
+    } */
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
