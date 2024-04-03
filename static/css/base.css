@@ -81,6 +81,22 @@ input[name='q']::placeholder {
     color: #aab7c4;
 }
 
+.nav-link i.fa-lg {
+    font-size: 1.7rem;
+}
+
+/* Footer */
+
+.social-icons i {
+    font-size: 2rem;
+    padding-right: 15px;
+}
+
+.social-icons i:hover {
+    opacity: 70%;
+}
+
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {

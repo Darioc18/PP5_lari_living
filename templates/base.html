@@ -91,7 +91,7 @@
                     </li>
                     <li class="list-inline-item">
                         <a class="text-grey nav-link px-1" href="{% url 'view_bag' %}">
-                            <div class="text-center">
+                            <div class="text-center mr-3">
                                 <div><i class="fas fa-shopping-bag fa-lg"></i>
                                     {% if product_count %}
                                     <span class='bag-badge'>{{ product_count }}</span>
@@ -138,65 +138,68 @@
     {% block content %}
     {% endblock %}
 
-    <footer class="w-100 mt-auto text-center pb-4">
+    <footer>
         <div class="container-fluid">
-            <div class="row">
-                <div class=" col-sm-12 col-md-4">
-                    <!-- Help Section -->
-                    <div class="footer-header mt-4">
-                        <h6 class="text-uppercase mb-4"><strong>Info</strong></h6>
-                    </div>
-                    <div><a href="#" class="footer-link" data-toggle="modal" data-target="#ShippingModal">Shipping
-                            Info</a>
-                    </div>
-                    <div><a href="#" class="footer-link" data-toggle="modal" data-target="#PolicyModal">Privacy
-                            Policy</a>
-                    </div>
-                </div>
+            <div class="row py-lg-3 px-lg-3">         
 
                 <div class="col-sm-12 col-md-4">
-                    <!-- {% for message in messages %}
-                        <div class="alert alert-success">
-                            {{ message }}
-                        </div>
-                        {% endfor %} -->
-                    <!-- Subscribe to Newsletter -->
-                    <div class="footer-header mt-4">
-                        <h6 class="text-uppercase mb-4"><strong>Subscribe to Newsletter</strong></h6>
-                    </div> 
-                    <hr>                   
-                    {% render_newsletter_form %}
-                </div>
-
-                <div class="col-sm-12 col-md-4">
-                    <div class="footer-header mt-4">
-                        <!-- Contact Us Section -->
-                        <h6 class="text-uppercase mb-4"><strong>Contact Us</strong></h6>
-                    </div>
-                    <div>
-                        <a href="#" class="footer-link">Get in Touch</a>
-                    </div>
-                    <h6 class="text-uppercase">Follow Us</h6>
-                    <a href="https://www.facebook.com/JoyfulBookstore.Dublin" target="_blank" rel="noopener"
-                        class="footer-link">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="footer-link">
-                        <i class="fab fa-instagram"></i>
-                    </a>                    
-                    <a href="https://github.com/Darioc18" target="_blank" rel="noopener"
-                        class="footer-link">
-                        <i class="fab fa-github"></i>
-                    </a>
+                    
+                    <!-- Contact Us Section -->
+                    <h5 class="text-uppercase mb-4"><strong>Follow Us</strong></h5>
+                    
+                    <ul class="list-unstyled list-inline social-icons">
+                        <li class="list-inline-item">
+                            <a href="https://www.facebook.com/JoyfulBookstore.Dublin" target="_blank" rel="noopener"
+                                class="footer-link" aria-label="Visit our Facebook page (opens in new tab)">
+                                <i class="fab fa-facebook fa-2x"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="footer-link" aria-label="Visit our Instagram page (opens in new tab)">
+                                <i class="fab fa-instagram fa-2x"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">            
+                            <a href="https://github.com/Darioc18" target="_blank" rel="noopener"
+                                class="footer-link" aria-label="Visit creator's repository page (opens in new tab)">
+                                <i class="fab fa-github fa-2x"></i>
+                            </a>
+                        </li> 
                     <div>
                         <!-- Copyright -->
                         <div class="copyright">
-                            <i class="fa-regular fa-copyright text-white"></i>
-                            <p class="d-inline">©Lari Living</p>
+                            <p class="">©Lari Living</p>
                         </div>
                     </div>
-
                 </div>
+
+                <div class="col-12 col-md-4 px-4 px-md-0">
+                    <ul class="nav flex-column px-4">
+                        <!-- Help Section -->
+                        <li class="nav-item">
+                            <a class="nav-link text-uppercase" href="{% url 'products' %}">Products</a>                            
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-uppercase" href="{% url 'testimonial_list' %}">
+                                Testimonials
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-uppercase" href="{% url 'contact' %}">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-12 col-md-4">
+                    <!-- Subscribe to Newsletter -->
+                    <div class="footer-header">
+                        <h6 class="text-uppercase mb-4"><strong>Subscribe to Newsletter</strong></h6>
+                    </div>                   
+                    {% render_newsletter_form %}
+                </div>
+                
             </div>
         </div>
     </footer>
