@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    color: #515151;
+    color: var(--color-grey);
 }
 
 /* from Bulma */
@@ -46,6 +46,10 @@ body {
     margin-bottom: 20px;
 }
 
+.new-collections {
+    margin-top: 20%;
+}
+
 /* Navigation Bar */
 
 .navbar {
@@ -57,6 +61,10 @@ body {
     color: var(--color-grey);
     font-size: 20px;
     font-weight: 400 !important;
+}
+
+.navbar ul a:hover {
+    opacity: 70%;
 }
 
 .logo-img {
@@ -85,17 +93,65 @@ input[name='q']::placeholder {
     font-size: 1.7rem;
 }
 
+.nav-link i.fa-lg:hover {
+    opacity: 70%;
+}
+
+.bag-badge {
+    background: var(--color-grey);
+    color: var(--color-white);
+    height: 19px;
+    line-height: 19px;
+    border-radius: 50%;
+    margin: 0;
+    min-width: 19px;
+    font-size: 12px;
+    position: absolute;
+    transform: translateY(-50%);
+}
+
 /* Footer */
+
+footer {
+    background-color: var(--color-grey);
+}
 
 .social-icons i {
     font-size: 2rem;
     padding-right: 15px;
+    color: var(--color-white);
 }
 
 .social-icons i:hover {
     opacity: 70%;
 }
 
+footer h2,
+footer .nav-item a {
+    color: var(--color-white);
+    font-size: 20px;
+    font-weight: 400 !important;
+}
+
+footer .nav-item a:hover {
+    opacity: 70%;
+}
+
+.social-icons p {
+    color: var(--color-white);
+}
+
+.border-white {
+    border-color: white;
+}
+
+.input-custom-width {
+    width: 60%;
+}
+
+footer input:hover {
+    opacity: 60%;
+}
 
 /* ------------------------------- bootstrap toasts */
 
@@ -263,9 +319,9 @@ input[name='q']::placeholder {
         z-index: 1030;
     }
 
-    /* .header-container {
+    .header-container {
         padding-top: 164px;
-    } */
+    }
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */

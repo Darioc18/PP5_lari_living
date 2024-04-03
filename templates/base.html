@@ -145,7 +145,7 @@
                 <div class="col-sm-12 col-md-4">
                     
                     <!-- Contact Us Section -->
-                    <h5 class="text-uppercase mb-4"><strong>Follow Us</strong></h5>
+                    <h2 class="text-uppercase mb-4">Follow Us</h2>
                     
                     <ul class="list-unstyled list-inline social-icons">
                         <li class="list-inline-item">
@@ -166,10 +166,12 @@
                             </a>
                         </li> 
                     <div>
+                        <li>
                         <!-- Copyright -->
-                        <div class="copyright">
-                            <p class="">©Lari Living</p>
-                        </div>
+                            <div class="copyright mt-3">
+                                <p class="copyright">©Lari Living</p>
+                            </div>
+                        </li>
                     </div>
                 </div>
 
@@ -177,7 +179,7 @@
                     <ul class="nav flex-column px-4">
                         <!-- Help Section -->
                         <li class="nav-item">
-                            <a class="nav-link text-uppercase" href="{% url 'products' %}">Products</a>                            
+                            <a class="nav-link text-uppercase pt-0" href="{% url 'products' %}">Products</a>                            
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-uppercase" href="{% url 'testimonial_list' %}">
@@ -195,7 +197,7 @@
                 <div class="col-sm-12 col-md-4">
                     <!-- Subscribe to Newsletter -->
                     <div class="footer-header">
-                        <h6 class="text-uppercase mb-4"><strong>Subscribe to Newsletter</strong></h6>
+                        <h2 class="newsletter mb-2">Receive our newsletter:</h2>
                     </div>                   
                     {% render_newsletter_form %}
                 </div>
