@@ -77,6 +77,8 @@ body {
     position: fixed;
     bottom: 10px;
     right: 10px;
+    z-index: 1;
+    background-color: white;
 }
 
 .btt-link,
@@ -151,6 +153,12 @@ footer .nav-item a:hover {
 
 footer input:hover {
     opacity: 60%;
+}
+
+/* Product Page */
+
+.card-text {
+    font-size: 1.2rem;
 }
 
 /* ------------------------------- bootstrap toasts */
