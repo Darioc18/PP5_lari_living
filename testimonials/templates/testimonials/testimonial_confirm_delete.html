@@ -12,10 +12,20 @@
 {% endblock %}
 
 {% block content %}
-<h2>Delete Testimonial</h2>
-<p>Are you sure you want to delete "{{ testimonial.content }}"?</p>
-<form method="post">
-  {% csrf_token %}
-  <button type="submit">Confirm Delete</button>
-</form>
+<div class="container">
+  <div class="row">
+    <div class="col text-center mt-3">
+        <h2>Delete Testimonial</h2>
+        <hr class="w-50 mb-1">
+    </div>
+  </div>
+  <p class="text-center mt-3">Are you sure you want to delete your Testimonial?</p>
+  <div class="row justify-content-center mb-3">
+      <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn mr-2 mt-2 rounded-0 text-uppercase btn-outline-dark">Delete</button>
+        <a href="{%  url 'testimonial_list' %}" class="btn mr-2 mt-2 rounded-0 text-uppercase btn-outline-dark">Cancel</a>
+      </form>
+  </div>
+</div>
 {% endblock %}

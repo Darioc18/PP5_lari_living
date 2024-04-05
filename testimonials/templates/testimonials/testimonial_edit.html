@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block extra_title %}Lari Living | Create Testimonial{% endblock %}
+{% block extra_title %}Create Testimonial{% endblock %}
 
 {% block page_header %}
 <div class="container header-container">
@@ -12,10 +12,22 @@
 {% endblock %}
 
 {% block content %}
-<h2>Edit Testimonial</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form | crispy }}
-  <button type="submit">Save Changes</button>
-</form>
+<div class="container">
+  <div class="row">
+    <div class="col text-center mt-3">
+      <h2 class="logo-font">Edit Testimonial</h2>
+      <hr class="w-50 mb-1">
+    </div>
+  </div>
+  <div class="row justify-content-center mb-3">
+    <div class="col-11 col-md-8 mt-3">
+      <form method="post">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <button type="submit" class="btn mr-2 mt-2 rounded-0 text-uppercase btn-outline-dark">Save Changes</button>
+        <a href="{%  url 'testimonial_list' %}" class="btn mr-2 mt-2 rounded-0 text-uppercase btn-outline-dark">Cancel</a>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}

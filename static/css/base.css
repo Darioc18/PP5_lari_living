@@ -2,11 +2,25 @@
 html {
     --color-grey: #515151;
     --color-white: #fff;
+    --color-lightgrey: #f3f3f3;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--color-grey);
+}
+
+/* Custom CSS for the button */
+.btn-outline-dark {
+    color: var(--color-grey);
+    border-color: var(--color-grey);
+}
+
+/* Custom CSS to override hover color */
+.btn-outline-dark:hover {
+    color: var(--color-white);
+    background-color: var(--color-grey);
+    border-color: var(--color-grey);
 }
 
 /* from Bulma */
@@ -176,6 +190,14 @@ footer input:hover {
 
 .toast-capper {
     height: 2px;
+}
+
+/* Testimonials */
+
+.testimonial-bg {
+    background-color: var(--color-lightgrey);
+    height: 110%;
+    border-radius: 10px;
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
