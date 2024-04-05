@@ -39,7 +39,7 @@ class TestimonialCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView)
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class TestimonialUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+class TestimonialUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, UpdateView):
     """
     View to edit a testimonial.
     """
@@ -49,11 +49,12 @@ class TestimonialUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView)
     success_url = reverse_lazy('testimonial_list')
     success_message = "Testimonial updated successfully."
 
-    def get_queryset(self):
+    def test_func(self):
         """
-        Returns the queryset of testimonials belonging to the current user.
+        Check if the current user is the owner of the testimonial or the superuser.
         """
-        return Testimonial.objects.filter(user=self.request.user)
+        testimonial = self.get_object()
+        return self.request.user or self.request.user.is_superuser == testimonial.user
 
 class TestimonialDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     """
@@ -64,11 +65,12 @@ class TestimonialDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView)
     success_url = reverse_lazy('testimonial_list')
     success_message = "Testimonial deleted successfully."
 
-    def get_queryset(self):
+    def test_func(self):
         """
-        Returns the queryset of testimonials belonging to the current user.
+        Check if the current user is the owner of the testimonial or the superuser.
         """
-        return Testimonial.objects.filter(user=self.request.user)
+        testimonial = self.get_object()
+        return self.request.user or self.request.user.is_superuser == testimonial.user
 
     def delete(self, request, *args, **kwargs):
         """
