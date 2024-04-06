@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+
+{% block extra_title %}Internal Server Error{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-6 mt-5 text-center">
+            <h1>500</h1>
+            <hr>
+            <h2 class="mt-3">Internal Server Error</h2>
+            <br>
+            <p>We apologize, but there was an unexpected error while processing your request. Our team has been alerted and is actively working to resolve the issue. Please try again later.</p>
+            <a href="{% url 'home' %}" class="btn btn-outline-dark rounded-0 m-2">Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
