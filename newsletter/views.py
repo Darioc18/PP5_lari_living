@@ -3,13 +3,14 @@ from django.contrib.auth.decorators import login_required
 from .forms import SubscibersForm, MailMessageForm
 from .models import Subscribers
 from django.contrib import messages
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMessage
 from django_pandas.io import read_frame
+from django.conf import settings
 
 # Create your views here.
 
 def newsletter(request):
-    """Subscribers page view"""
+    """View for displaying the newsletter form"""
     template = 'newsletter/newsletter_admin.html'
     form = MailMessageForm()
     return render(request, template)
@@ -33,7 +34,7 @@ def subscribe_form(request):
     context = {
         'subscribe_form': subscribe_form,
     }
-    return render(request, 'home\index.html', context)
+    return render(request, 'home/index.html', context)
 
 @login_required
 def mail_letter(request):
@@ -44,20 +45,21 @@ def mail_letter(request):
     emails = Subscribers.objects.all()
     df = read_frame(emails, fieldnames=['email'])
     mail_list = df['email'].values.tolist()
-    print(mail_list)
+
     if request.method == 'POST':
         form = MailMessageForm(request.POST)
         if form.is_valid():
             form.save()
             title = form.cleaned_data.get('title')
             message = form.cleaned_data.get('message')
-            send_mail(
+            email = EmailMessage(
                 title,
                 message,
-                '',
-                mail_list,
-                fail_silently=False,
+                settings.EMAIL_HOST_USER,
+                [],  # empty recipient list (email addresses are added to BCC)
+                mail_list,  # add the mailing list to BCC
             )
+            email.send(fail_silently=False)
             messages.success(request, 'Message has been sent to the Mail List')
             return redirect('/')
     else:
