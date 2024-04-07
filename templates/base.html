@@ -135,70 +135,83 @@
     {% block content %}
     {% endblock %}
 
+    {% include 'includes/footer.html' %}
+
     <footer class="mt-auto container-fluid">
-            <div class="row py-lg-3 px-lg-3">         
+        <div class="row py-lg-3 px-lg-3 py-3 py-md-0">       
 
-                <div class="col-12 col-md-4 col-md-4 px-md-0">
-                    
-                    <!-- Contact Us Section -->
-                    <h2 class="text-uppercase mb-4">Follow Us</h2>
-                    
-                    <ul class="list-unstyled list-inline social-icons">
-                        <li class="list-inline-item">
-                            <a href="https://www.facebook.com/JoyfulBookstore.Dublin" target="_blank" rel="noopener"
-                                class="footer-link" aria-label="Visit our Facebook page (opens in new tab)">
-                                <i class="fab fa-facebook fa-2x"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="footer-link" aria-label="Visit our Instagram page (opens in new tab)">
-                                <i class="fab fa-instagram fa-2x"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">            
-                            <a href="https://github.com/Darioc18" target="_blank" rel="noopener"
-                                class="footer-link" aria-label="Visit creator's repository page (opens in new tab)">
-                                <i class="fab fa-github fa-2x"></i>
-                            </a>
-                        </li> 
-                    <div>
-                        <li>
-                        <!-- Copyright -->
-                            <div class="copyright mt-3">
-                                <p class="copyright">©Lari Living</p>
-                            </div>
-                        </li>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-4 px-4 px-md-0">
-                    <ul class="nav flex-column px-4">
-                        <!-- Help Section -->
-                        <li class="nav-item">
-                            <a class="nav-link text-uppercase pt-0" href="{% url 'products' %}">Products</a>                            
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-uppercase" href="{% url 'testimonial_list' %}">
-                                Testimonials
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-uppercase" href="{% url 'contact' %}">
-                                Contact Us
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-sm-12 col-md-4">
-                    <!-- Subscribe to Newsletter -->
-                    <div class="footer-header">
-                        <h2 class="newsletter mb-2">Receive our newsletter:</h2>
-                    </div>                   
-                    {% render_newsletter_form %}
-                </div>
-                
+            <div class="col-6 col-md-4 px-md-0">                    
+                <!-- Contact Us Section -->
+                <h2 class="text-uppercase mb-md-4">Follow Us</h2>                    
+                <ul class="list-unstyled list-inline social-icons">
+                    <li class="list-inline-item">
+                        <a href="https://www.facebook.com/JoyfulBookstore.Dublin" target="_blank" rel="noopener"
+                            class="footer-link" aria-label="Visit our Facebook page (opens in new tab)">
+                            <i class="fab fa-facebook fa-2x"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="footer-link" aria-label="Visit our Instagram page (opens in new tab)">
+                            <i class="fab fa-instagram fa-2x"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">            
+                        <a href="https://github.com/Darioc18" target="_blank" rel="noopener"
+                            class="footer-link" aria-label="Visit creator's repository page (opens in new tab)">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                    </li>
+                    <li>
+                    <!-- Copyright -->
+                        <div class="copyright mt-1 mt-md-3">
+                            <p class="copyright">©Lari Living</p>                            
+                        </div>
+                    </li>
+                </ul>
             </div>
+
+            <div class="col-6 d-md-none logo">
+                <a href="{% url 'home' %}" class="nav-link main-logo-link pr-0" aria-label="home">
+                    <img src="{% static 'images/logo-white.png'%}" alt="Lari Living Logo" class="logo-img img-fluid float-right">
+                </a>            
+            </div>
+
+            <div class="col-12 py-0 px-3 d-md-none">
+                <hr class="footer-divider">
+            </div>   
+
+            <div class="col-12 col-md-4 px-0 px-md-4 py-0">
+                <ul class="nav flex-column">
+                    <!-- Help Section -->
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase pt-0" href="{% url 'products' %}">Products</a>                            
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase" href="{% url 'testimonial_list' %}">
+                            Testimonials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase" href="{% url 'contact' %}">
+                            Contact Us
+                        </a>
+                    </li>                    
+                </ul>                
+            </div>
+            
+            <div class="col-12 py-0 px-3 d-md-none">
+                <hr class="footer-divider">
+            </div>
+
+            <div class="col-sm-12 col-md-4">
+                <!-- Subscribe to Newsletter -->
+                <div class="footer-header">
+                    <h2 class="newsletter mb-2">Receive our newsletter:</h2>
+                </div>                   
+                {% render_newsletter_form %}
+            </div>
+            
+        </div>
     </footer>
 
     {% block postloadjs %}

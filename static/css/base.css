@@ -15,6 +15,10 @@ body {
     border: 1px solid var(--color-grey) !important;
 }
 
+.footer-divider {
+    border: 1px solid var(--color-lightgrey);
+}
+
 /* Custom CSS for the button */
 .btn-outline-dark {
     color: var(--color-grey);
@@ -56,7 +60,6 @@ body {
     background-size: cover;
     background-position: center;
     height: 100vh;
-
 }
 
 .image-overlay h1,
@@ -172,6 +175,10 @@ footer .nav-item a:hover {
 
 footer input:hover {
     opacity: 60%;
+}
+
+footer img.logo-img {
+    height: 50px;
 }
 
 /* Product Page */
@@ -393,8 +400,27 @@ footer input:hover {
         padding: .375rem .375rem;
     }
 
+    .btn.btn-outline-dark.rounded-0.btn-lg,
+    .btn.btn-dark.rounded-0.btn-lg {
+        padding: .375rem .375rem;
+        font-size: .75rem;
+    }
+
     .increment-qty,
     .decrement-qty {
         padding: .25rem .5rem !important;
+    }
+
+    /* newsletter subscription input field larger */
+    .input-custom-width {
+        width: 100%;
+    }
+
+    .new-collections {
+        margin-top: auto;
+    }
+
+    .social-icons i {
+        font-size: 1.8rem;
     }
 }
