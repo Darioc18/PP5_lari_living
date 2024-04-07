@@ -16,6 +16,7 @@ def newsletter(request):
     return render(request, template)
 
 def subscribe_form(request):
+    """View for handling subscription form submission"""
     if request.method == 'POST':
         subscribe_form = SubscibersForm(request.POST)
         if subscribe_form.is_valid():
@@ -38,6 +39,7 @@ def subscribe_form(request):
 
 @login_required
 def mail_letter(request):
+    """View for sending newsletters to subscribers"""
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))

@@ -10,7 +10,6 @@ class Contact(models.Model):
         ('FEEDBACK', 'Feedback or Suggestions')
         ]
 
-
     name = models.CharField(max_length=100)
     email = models.EmailField()
     subject = models.CharField(max_length=200, choices=ENQUIRY_SELECTION, default=0)

@@ -7,9 +7,7 @@ from django.views.generic import FormView
 from django.contrib import messages
 
 class ContactView(FormView):
-    """
-    View for displaying the contact form and handling form submissions.
-    """
+    """ View for displaying the contact form and handling form submissions. """
     template_name = 'contact/contact.html'
     form_class = ContactForm
     success_url = reverse_lazy('contact')
