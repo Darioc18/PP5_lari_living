@@ -1,5 +1,6 @@
 /* Global Styles */
 html {
+    height: 100%;
     --color-grey: #515151;
     --color-white: #fff;
     --color-lightgrey: #f3f3f3;
@@ -8,6 +9,10 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--color-grey);
+}
+
+.border-black {
+    border: 1px solid var(--color-grey) !important;
 }
 
 /* Custom CSS for the button */
@@ -353,13 +358,43 @@ footer input:hover {
     }
 }
 
-/* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 116px;
+        padding-top: 50px;
+    }
+
+    .image-overlay {
+        background-image: url('/static/images/homepage-portrait.jpg');
+        min-height: 800px;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .new-collections {
+        color: var(--color-grey) !important;
+        font-size: 2.5rem;
     }
 
     body {
         height: calc(100vh - 116px);
+    }
+
+    .navbar-toggler {
+        font-size: 1rem;
+        margin-left: 1rem;
+    }
+
+    .navbar-nav {
+        padding-left: 1rem;
+    }
+
+    .btn.btn-outline-dark.rounded-0,
+    .btn.btn-dark.rounded-0 {
+        padding: .375rem .375rem;
+    }
+
+    .increment-qty,
+    .decrement-qty {
+        padding: .25rem .5rem !important;
     }
 }
