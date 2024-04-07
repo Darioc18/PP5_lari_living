@@ -10,7 +10,7 @@
                 <div class="input-group w-100">
                     <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
                     <div class="input-group-append">
-                        <button class="form-control form-control btn btn-black border border-black rounded-0" type="submit">
+                        <button class="form-control form-control btn btn-black border border-black rounded-0" type="submit" aria-label="search button">
                             <span class="icon">
                                 <i class="fas fa-search"></i>
                             </span>
@@ -41,7 +41,7 @@
         </div>
     </li>
     <li class="list-inline-item">
-        <a class="text-grey nav-link px-1" href="{% url 'view_bag' %}">
+        <a class="text-grey nav-link px-1" href="{% url 'view_bag' %}" aria-label="view bag">
             <div class="text-center mr-3">
                 <div><i class="fas fa-shopping-bag fa-lg"></i>
                     {% if product_count %}
