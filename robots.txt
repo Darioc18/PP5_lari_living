@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /mail_letter/
+Sitemap: https://pp5-lari-living-2c9565c3cb2d.herokuapp.com/sitemap.xml
