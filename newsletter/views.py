@@ -9,11 +9,13 @@ from django.conf import settings
 
 # Create your views here.
 
+
 def newsletter(request):
     """View for displaying the newsletter form"""
     template = 'newsletter/newsletter_admin.html'
     form = MailMessageForm()
     return render(request, template)
+
 
 def subscribe_form(request):
     """View for handling subscription form submission"""
@@ -27,15 +29,16 @@ def subscribe_form(request):
             else:
                 subscribe_form.save()
                 messages.success(request, 'Subscription Successful')
-                return redirect(reverse('home'))  # Redirect after form submission
-            
+                return redirect(reverse('home'))
+
     else:
         subscribe_form = SubscibersForm()
-    
+
     context = {
         'subscribe_form': subscribe_form,
     }
     return render(request, 'home/index.html', context)
+
 
 @login_required
 def mail_letter(request):

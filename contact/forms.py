@@ -1,6 +1,7 @@
 from django import forms
 from .models import Contact
 
+
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
@@ -11,4 +12,6 @@ class ContactForm(forms.ModelForm):
         self.fields['name'].widget.attrs.update({'placeholder': 'Your Name'})
         self.fields['email'].widget.attrs.update({'placeholder': 'Your Email'})
         self.fields['subject'].widget.attrs.update({'placeholder': 'Subject'})
-        self.fields['message'].widget.attrs.update({'placeholder': 'Your Message'})
+        self.fields['message'].widget.attrs.update(
+            {'placeholder': 'Your Message'}
+            )

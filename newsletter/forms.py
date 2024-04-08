@@ -5,7 +5,7 @@ from . models import Subscribers, MailMessage
 class SubscibersForm(forms.ModelForm):
     class Meta:
         model = Subscribers
-        fields = ['email',]
+        fields = ['email', ]
         labels = {
             'email': ''
         }

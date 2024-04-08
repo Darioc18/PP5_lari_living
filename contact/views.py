@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.views.generic import FormView
 from django.contrib import messages
 
+
 class ContactView(FormView):
     """ View for displaying the contact form and handling form submissions. """
     template_name = 'contact/contact.html'
@@ -35,6 +36,7 @@ class ContactView(FormView):
         )
 
         # Success message
-        messages.success(self.request, "Your message has been sent successfully")
+        messages.success(
+            self.request, "Your message has been sent successfully")
 
         return super().form_valid(form)
