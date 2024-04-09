@@ -46,3 +46,6 @@ A future addition to manage suppliers and products, to improve productivity and 
 Currently, the application follows the model of free delivery over a certain threshold. However, there's an intention to explore various delivery cost calculation methods, considering factors such as shipping company fees, distance, product weight, value, payment method, taxes, and delivery options.
 
 These decisions are made with consideration for feature necessity, development time, and alignment with business operations, ensuring a strategic approach to future growth.
+
+## Testing
+Testing and results can be found [here](TESTING.md)
