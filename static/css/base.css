@@ -212,6 +212,11 @@ footer img.logo-img {
     border-radius: 10px;
 }
 
+/* Newsletter subscription form */
+.visually-hidden-label {
+    visibility: hidden;
+}
+
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
     width: 0;
