@@ -2,7 +2,7 @@
 
 You can access the website live link here: **[Lari Living](https://pp5-lari-living-2c9565c3cb2d.herokuapp.com/)**
 
-Lari Living operates as a B2C e-commerce store focused on home décor. Our platform targets users interested in upscale interior products. Additionally, they can view images and testimonials or leave their own feedback.
+Lari Living operates as a B2C e-commerce store focused on home décor. The platform targets users interested in upscale interior products. Additionally, users can view images and testimonials or leave their own feedback.
 Payment transactions are facilitated through Stripe. Please be aware that this website is for educational purposes only, and users should refrain from entering personal credit/debit card details. Test card details are available for testing purposes: [Stripe](#payments-with-stripe)
 
 ![Site Mockup](documentation/readme_images/design/site_mockup.png)
@@ -84,13 +84,78 @@ This design ensures an intuitive browsing experience for Lari Living's customers
 - **User Story: View order confirmation post checkout [#36](https://github.com/Darioc18/PP5_lari_living/issues/36)** - As a shopper I can view an order confirmation after checkout so that I can verify that I haven't made any mistakes.
 - **User Story: Receive email confirmation post checkout [#37](https://github.com/Darioc18/PP5_lari_living/issues/37)** - As a shopper I can receive an email confirmation after checking out so that I can keep the confirmation of what I have purchased for my records.
 
+## Design
+In the CSS file, variables were used to keep color definitions consistent across the entire stylesheet. This approach simplifies color updates throughout the website by adjusting the color once in the variable, maintaining design uniformity.
 
+Attention was also given to ensuring a clear contrast between background colors and text at all times, improving user accessibility.
+### Colour Scheme
+The design is clean and utilizes three neutral colors strategically to draw attention to the color and forms of the products.
+Colour palette from [Coolors](https://coolors.co/)
+![Colour Palette](documentation/readme_images/design/colour_palette.png)
 
+ ### Imagery
+ A minimalist hero image was employed to convey a sense of elegance and luxury, without overwhelming the viewer. The simplicity of the design allows the focus to remain on the features of the website enhancing the general visual appeal.
 
+The logo was designed with sinuous lines that evoke the image of a figure reclining comfortably. Placing the name of the brand atop the design adds to its sophistication while ensuring clarity and brand recognition. This logo design captures the essence of Lari Living's ethos, subtly communicating luxury and comfort.
 
+![Logo Design](documentation/readme_images/design/logo_design.jpg)
 
+## Typography
+The chosen font, used throughout the website, brings a modern and vibrant feel to the brand's image, without being too rigid and adding to its contemporary appeal: [Poppins](https://fonts.google.com/specimen/Poppins) Google font.
 
+![Font](documentation/readme_images/design/font.jpg)
 
+## Wireframes
+
+Wireframes were created using [Balsamiq](https://balsamiq.com/).
+
+<details>
+ <summary>Home Page</summary>
+
+![Home Page](documentation/readme_images/design/wireframe_homepage.png)
+</details>
+
+<details>
+ <summary>Products</summary>
+
+![Products](documentation/readme_images/design/wireframe_products.png)
+</details>
+
+<details>
+ <summary>Product Details</summary>
+
+![Products](documentation/readme_images/design/wireframe_product_details.png)
+</details>
+
+<details>
+ <summary>Bag</summary>
+
+![Bag](documentation/readme_images/design/wireframe_bag.png)
+</details>
+
+<details>
+ <summary>Checkout</summary>
+
+![Profile](documentation/readme_images/design/wireframe_checkout.png)
+</details>
+
+<details>
+ <summary>Profile</summary>
+
+![Products](documentation/readme_images/design/wireframe_profile.png)
+</details>
+
+<details>
+ <summary>Testimonials</summary>
+
+![Testimonials](documentation/readme_images/design/wireframe_testimonials.png)
+</details>
+
+<details>
+ <summary>Contact</summary>
+
+![Contact](documentation/readme_images/design/wireframe_contacts.png)
+</details>
 
 ## Payments with Stripe
 This website is for educational purposes only, and users should refrain from entering personal credit/debit card details. Use these details for testing purposes:
@@ -146,7 +211,7 @@ A future addition to manage suppliers and products, to improve productivity and 
 - **Delivery Cost Calculation:**
 Currently, the application follows the model of free delivery over a certain threshold. However, there's an intention to explore various delivery cost calculation methods, considering factors such as shipping company fees, distance, product weight, value, payment method, taxes, and delivery options.
 
-These decisions are made with consideration for feature necessity, development time, and alignment with business operations, ensuring a strategic approach to future growth.
+These decisions are made with consideration for feature necessity, development time, and alignment with business operations.
 
 ## Testing
 Testing and results can be found [here](TESTING.md)
