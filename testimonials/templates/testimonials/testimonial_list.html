@@ -38,8 +38,8 @@
               {{ testimonial.created_on|date:"j F Y" }}
               {% if user.is_superuser or testimonial.user == user %}
               <p>
-                <a href="{% url 'testimonial_edit' testimonial.pk %}">Edit</a> |
-                <a href="{% url 'testimonial_confirm_delete' testimonial.pk %}" class="text-danger">Delete</a>       
+                <a href="{% url 'testimonial_edit' testimonial.pk %}" class="grey-underline">Edit</a> |
+                <a href="{% url 'testimonial_confirm_delete' testimonial.pk %}" class="grey-underline">Delete</a>       
               </p> 
               {% endif %}
             </div>
