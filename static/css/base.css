@@ -212,9 +212,10 @@ footer img.logo-img {
     border-radius: 10px;
 }
 
-/* Newsletter subscription form */
-.visually-hidden-label {
-    visibility: hidden;
+/* Allauth forms links */
+.grey-underline {
+    color: var(--color-grey);
+    text-decoration: underline;
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
