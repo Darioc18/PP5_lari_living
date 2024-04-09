@@ -1,5 +1,7 @@
 <form action="{% url 'subscribers' %}" class="input-custom-width" method="POST">
     {% csrf_token %}
     {{ subscribe_form | crispy }}
-    <input type="submit" class="btn rounded-0 text-uppercase border-white text-white w-100" value="Subscribe">
+    <label>
+        <input type="submit" class="btn rounded-0 text-uppercase border-white text-white w-100" value="Subscribe" aria-label="email to subscribe to newsletter">
+    </label>
 </form>
