@@ -11,7 +11,7 @@ class ContactForm(forms.ModelForm):
         super(ContactForm, self).__init__(*args, **kwargs)
         self.fields['name'].widget.attrs.update({'placeholder': 'Your Name'})
         self.fields['email'].widget.attrs.update({'placeholder': 'Your Email'})
-        self.fields['subject'].widget.attrs.update({'placeholder': 'Subject'})
         self.fields['message'].widget.attrs.update(
             {'placeholder': 'Your Message'}
             )
+
