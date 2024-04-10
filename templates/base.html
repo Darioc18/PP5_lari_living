@@ -75,14 +75,14 @@
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
-                                        <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-                                        <a href="{% url 'mail_letter' %}" class="dropdown-item">Newsletter</a>
+                                        <a href="{% url 'add_product' %}" class="dropdown-item" aria-label="product management">Product Management</a>
+                                        <a href="{% url 'mail_letter' %}" class="dropdown-item" aria-label="send newsletter">Newsletter</a>
                                     {% endif %}
-                                    <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                    <a href="{% url 'profile' %}" class="dropdown-item" aria-label="my profile">My Profile</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item" aria-label="log out">Logout</a>
                                 {% else %}
-                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item" aria-label="register">Register</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item" aria-label="log in">Login</a>
                                 {% endif %}
                             </div>
                         </li>
@@ -182,20 +182,20 @@
                     <ul class="nav flex-column">
                         <!-- Help Section -->
                         <li class="nav-item">
-                            <a class="nav-link text-uppercase pt-0" href="{% url 'products' %}">Products</a>                            
+                            <a class="nav-link text-uppercase pt-0" href="{% url 'products' %}" aria-label="products">Products</a>                            
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-uppercase pt-0" href="{% url 'testimonial_list' %}">
+                            <a class="nav-link text-uppercase pt-0" href="{% url 'testimonial_list' %}" aria-label="testimonials">
                                 Testimonials
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-uppercase pt-0" href="{% url 'contact' %}">
+                            <a class="nav-link text-uppercase pt-0" href="{% url 'contact' %}" aria-label="contact us">
                                 Contact Us
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-uppercase pt-0" href="https://www.termsfeed.com/live/335a1965-cfb5-4344-adeb-c9a9e0094f77" target="_blank">
+                            <a class="nav-link text-uppercase pt-0" href="https://www.termsfeed.com/live/335a1965-cfb5-4344-adeb-c9a9e0094f77" target="_blank" aria-label="privacy policy">
                                 Privacy Policy
                             </a>
                         </li> 

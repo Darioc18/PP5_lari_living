@@ -21,7 +21,7 @@
             <form method="post">
             {% csrf_token %}
             <button class="btn btn-outline-dark rounded-0" type="submit">Confirm</button>
-            <a class="btn btn-outline-dark rounded-0" href="{% url 'product_detail' product.id %}">Cancel</a>
+            <a class="btn btn-outline-dark rounded-0" href="{% url 'product_detail' product.id %}" aria-label="cancel">Cancel</a>
             </form>
         </div>
     </div>

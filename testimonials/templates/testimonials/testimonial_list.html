@@ -38,8 +38,8 @@
               {{ testimonial.created_on|date:"j F Y" }}
               {% if user.is_superuser or testimonial.user == user %}
               <p>
-                <a href="{% url 'testimonial_edit' testimonial.pk %}" class="grey-underline">Edit</a> |
-                <a href="{% url 'testimonial_confirm_delete' testimonial.pk %}" class="grey-underline">Delete</a>       
+                <a href="{% url 'testimonial_edit' testimonial.pk %}" class="grey-underline" aria-label="edit">Edit</a> |
+                <a href="{% url 'testimonial_confirm_delete' testimonial.pk %}" class="grey-underline" aria-label="delete">Delete</a>       
               </p> 
               {% endif %}
             </div>
@@ -52,7 +52,7 @@
         <div class="row">
           <div class="col-12">
             <div class="pt-3 text-center">
-              <a href="{% url 'testimonial_create' %}" class="btn btn-lg mr-2 mt-2 rounded-0 text-uppercase py-3 btn-outline-dark">Share Your Experience</a>
+              <a href="{% url 'testimonial_create' %}" class="btn btn-lg mr-2 mt-2 rounded-0 text-uppercase py-3 btn-outline-dark" aria-label="add testimonial">Share Your Experience</a>
             </div>
           </div>
         </div>
