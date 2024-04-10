@@ -157,6 +157,67 @@ Wireframes were created using [Balsamiq](https://balsamiq.com/).
 ![Contact](documentation/readme_images/design/wireframe_contacts.png)
 </details>
 
+## Agile Methodology
+
+Agile methodology is an iterative and flexible approach to project management and software development that prioritizes adaptability, collaboration, and customer satisfaction. It emphasizes incremental progress, continuous feedback, and the ability to respond to changing requirements throughout the development process.
+
+Principles of agile methodology have been used during the website development, incorporating the following key aspects:
+
+### GitHub Projects/Kanban Board
+
+GitHub Projects was used to manage the development process following an agile methodology. The project board, accessible through this [link](https://github.com/users/Darioc18/projects/4/views/1?layout=board), served as a practical tool for organizing tasks and tracking progress.
+
+The Epics were documented within the GitHub project as Milestones. A Github Issue template was create to facilitate adding User Stories to the kanban board. For each User Story, a GitHub Issue was created and allocated to a milestone (Epic).
+
+### MoSCoW Prioritization
+
+The MOSCOW method was employed for task prioritization, categorizing them into Must-haves, Should-haves, Could-haves, and Won't-haves. This systematic prioritization ensured a focused and flexible development process.
+
+<details>
+<summary>MoSCoW & GitHub Kanban</summary>
+
+![MoSCoW & GitHub Kanban](documentation/readme_images/features/kanban_board.jpg)
+</details>
+
+## Defensive Design
+
+### Form Validation:
+
+Comprehensive form validation mechanisms have been implemented. In the event of incorrect or empty data during form submission, the form blocks the submission and displays a user-friendly warning. This approach ensures users promptly receive feedback about the specific fields causing errors.
+
+### User Authentication
+
+In instances where Django's Class-based-views were utilized, the LoginRequiredMixin was implemented to make sure that requests to access secure pages by non-authenticated users are redirected to the login page.
+
+For function-based views, Django's login_required and user_passes_test decorators were utilized to restrict access as necessary. These decorators ensure that only authenticated users are able to access certain functionalities, and that access is further limited based on specific conditions or permissions.
+
+To restrict access to non-authorized users, the following code snippet was used in certain instances:
+```
+if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+```
+###  Error Page
+
+Custom error page 404 was created to give the user more information on the error and to provide them with buttons to guide them back to the site.
+
+<details>
+<summary>Error 404 page</summary>
+
+![Error 404 page](documentation/readme_images/features/error_404.JPG)
+</details>
+
+### Database Protection:
+
+Prioritizing confidentiality and safeguarding against unauthorized access, my database security approach involves storing the database URL and secret key in a separate *env-py* file. This precautionary measure was established before the initial push to GitHub, preserving the confidentiality of sensitive information.
+
+### Cross-Site Request Forgery (CSRF) Protection:
+
+The website employs CSRF tokens on all forms across the site, adding an extra layer of defense against cross-site request forgery attacks.
+
+[Back to Contents](#table-of-contents)
+
+
 ## Payments with Stripe
 This website is for educational purposes only, and users should refrain from entering personal credit/debit card details. Use these details for testing purposes:
 
