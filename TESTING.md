@@ -75,6 +75,102 @@ class Meta:
 
 However, due to time constraints, these solutions were not tested before submission. They will be tested in the future to ensure proper functionality and adherence to best practices.
 
+### CSS
+
+No errors were detected when running the CSS files through the official [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input).
+
+| Page             | Screenshot | Result |
+|------------------|:----------:|:-----:|
+| *base.css*       |![screenshot](documentation/readme_images/testing/css_base.jpg)|Pass|
+| *checkout.css*   |![screenshot](documentation/readme_images/testing/css_checkout.jpg)|Pass|
+| *profile.css*    |![screenshot](documentation/readme_images/testing/css_profile.jpg)|Pass|
+
+### JavaScript
+
+No errors were detected when running the JavaScript files through the official [JSHint](https://jshint.com/).
+
+| Page             | Screenshot | Result |
+|------------------|:----------:|:-----:|
+| *base.html* script       |![screenshot](documentation/readme_images/testing/js_base.jpg)|Pass|
+| *products.html* script   |![screenshot](documentation/readme_images/testing/js_products.jpg)|Pass|
+| *bag.html* script    |![screenshot](documentation/readme_images/testing/js_bag.jpg)|Pass|
+| profile: *countryfield.js*    |![screenshot](documentation/readme_images/testing/js_profile.jpg)|Pass|
+| checkout: *stripe_elements.js* script    |![screenshot](documentation/readme_images/testing/js_checkout.jpg)|Pass|
+| *quantity_input_script.html* script    |![screenshot](documentation/readme_images/testing/js_quantity.jpg)|Pass|
+| *bag.html* script    |![screenshot](documentation/readme_images/testing/js_bag.jpg)|Pass|
+| *edit_product.html* script    |![screenshot](documentation/readme_images/testing/js_edit_product.jpg)|Pass|
+
+## Python
+
+No errors were detected when running the Python files through the [Code Institute Python Linter](https://pep8ci.herokuapp.com/#). Screenshot of the most relevant files are displayed below:
+
+**Bag**
+
+| File                           | Screenshot | Notes     |
+|--------------------------------|------------|-----------|
+| *contexts.py*                     | ![contexts](documentation/readme_images/testing/py_bag_context.jpg)  | Pass |
+| *views.py*                     | ![views](documentation/readme_images/testing/py_bag_views.jpg)  | Pass |
+
+**Checkout**
+
+| File                           | Screenshot | Notes     |
+|--------------------------------|------------|-----------|
+| *admin.py*                     | ![contexts](documentation/readme_images/testing/py_checkout_admin.jpg)  | Pass |
+| *forms.py*                     | ![views](documentation/readme_images/testing/py_checkout_forms.jpg)  | Pass |
+| *models.py*                     | ![views](documentation/readme_images/testing/py_checkout_models.jpg)  | Pass |
+| *signals.py*                     | ![views](documentation/readme_images/testing/py_checkout_signals.jpg)  | Pass |
+| *views.py*                     | ![views](documentation/readme_images/testing/py_checkout_views.jpg)  | Pass |
+| *webhook_handler.py*                     | ![views](documentation/readme_images/testing/py_checkout_webhook_handler.jpg)  | Pass |
+| *webhooks.py*                     | ![views](documentation/readme_images/testing/py_checkout_webhooks.jpg)  | Pass |
+
+**Contact**
+
+| File                           | Screenshot | Notes     |
+|--------------------------------|------------|-----------|
+| *forms.py*                     | ![views](documentation/readme_images/testing/py_checkout_forms.jpg)  | Pass |
+| *models.py*                     | ![views](documentation/readme_images/testing/py_contact_models.jpg)  | Pass |
+| *views.py*                     | ![views](documentation/readme_images/testing/py_contact_views.jpg)  | Pass |
+
+**Lari Living Main**
+
+| File                           | Screenshot | Notes     |
+|--------------------------------|------------|-----------|
+| *settings.py*                     | ![views](documentation/readme_images/testing/py_main_settings.jpg)  | The three lines in the screenshot cannot be split |
+| *urls.py*                     | ![views](documentation/readme_images/testing/py_main_urls.jpg)  | Pass |
+
+**Newsletter**
+
+| File                           | Screenshot | Notes     |
+|--------------------------------|------------|-----------|
+| *forms.py*                     | ![views](documentation/readme_images/testing/py_newsletter_forms.jpg)  | Pass |
+| *models.py*                     | ![views](documentation/readme_images/testing/py_newsletter_models.jpg)  | Pass |
+| *views.py*                     | ![views](documentation/readme_images/testing/py_newsletter_views.jpg)  | Pass |
+
+**Products**
+
+| File                           | Screenshot | Notes     |
+|--------------------------------|------------|-----------|
+| *admin.py*                     | ![views](documentation/readme_images/testing/py_products_admin.jpg)  | Pass |
+| *forms.py*                     | ![views](documentation/readme_images/testing/py_products_forms.jpg)  | Pass |
+| *models.py*                     | ![views](documentation/readme_images/testing/py_products_models.jpg)  | Pass |
+| *views.py*                     | ![views](documentation/readme_images/testing/py_products_views.jpg)  | Pass |
+
+**Profiles**
+
+| File                           | Screenshot | Notes     |
+|--------------------------------|------------|-----------|
+| *forms.py*                     | ![views](documentation/readme_images/testing/py_profile_forms.jpg)  | Pass |
+| *models.py*                     | ![views](documentation/readme_images/testing/py_profile_models.jpg)  | Pass |
+| *views.py*                     | ![views](documentation/readme_images/testing/py_profile_views.jpg)  | Pass |
+
+**Testimonials**
+
+| File                           | Screenshot | Notes     |
+|--------------------------------|------------|-----------|
+| *models.py*                     | ![views](documentation/readme_images/testing/py_testimonials_models.jpg)  | Pass |
+| *urls.py*                     | ![views](documentation/readme_images/testing/py_testimonials_urls.jpg)  | Pass |
+| *views.py*                     | ![views](documentation/readme_images/testing/py_testimonials_views.jpg)  | Pass |
+
 ## Lighthouse
 
 Lighthouse validation was used on all pages to assess performance, accessibility, best practices and SEO. Numerous warnings were addressed, notably concerning insufficient contrast ratio between background and foreground colors, resulting in the following scores:
