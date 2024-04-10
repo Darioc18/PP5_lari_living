@@ -1,4 +1,4 @@
-# Lari Living
+# Lari Living - eCommerce Website
 
 You can access the website live link here: **[Lari Living](https://pp5-lari-living-2c9565c3cb2d.herokuapp.com/)**
 
@@ -186,6 +186,16 @@ The MOSCOW method was employed for task prioritization, categorizing them into M
 
 ![MoSCoW & GitHub Kanban](documentation/readme_images/features/kanban_board.jpg)
 </details>
+
+## Database Diagram
+
+The data model for Lari Living follows Object-Oriented Programming principles. SQLite was used as database during development, while Postgres was chosen for the Heroku-deployed version.
+
+### ERD
+
+An entity relationship diagram (ERD) was created using Lucidchart to visualize the relationships between different entities within the database:
+
+![ERD](documentation/readme_images/features/erd.jpg)
 
 ## Defensive Design
 
@@ -405,13 +415,11 @@ Two buttons at the bottom invite the user to add the item to the bag or to go ba
 
 ![Add Product Page](documentation/readme_images/features/add_product.jpg)
 
-The add product page is accessible by clicking the 'Add Product' button on the Home Decor page or in the user dropdown menu, specifically under Home Decor Management. These options are exclusively visible to superusers.
+The add product page is accessible by clicking in the user dropdown menu *Product Management*. These option is exclusively visible to superusers.
 
-In case a non-superuser attempts to access the add product page (e.g., by changing the URL), they are redirected to a custom 403 page, preventing unauthorized access.
+In case a non-superuser attempts to access the add product page (e.g., by changing the URL), they receive an error message.
 
 To successfully submit the add product form, users must fill out all fields marked with an asterisk. If any required fields are left blank or contain only whitespace upon submission, an error message appears above the respective field, alerting the user to the issue.
-
-Furthermore, the SKU field must be unique. If the entered SKU already exists in the database, an error message is displayed.
 
 Additionally, if a price with more than 6 digits is entered, the form submission fails, and an error message appears under the price field.
 
@@ -548,8 +556,9 @@ An email account specific for the store has been created to send messages. And t
 <details>
 <summary>Newsletter Email Test</summary>
 
-![Newsletter Email Test #1](documentation/readme_images/features/newsletter_email_test.jpg.jpg)
-![Newsletter Email Test #2](documentation/readme_images/features/newsletter_email_test2.jpg.jpg)
+![Newsletter Email Test #1](documentation/readme_images/features/newsletter_email_test.jpg)
+
+![Newsletter Email Test #2](documentation/readme_images/features/newsletter_email_test2.jpg)
 </details>
 
 ## Payments with Stripe
