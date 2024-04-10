@@ -76,8 +76,8 @@
                                             {% endif %}
                                             {% if request.user.is_superuser %}
                                                 <p>
-                                                    <a href="{% url 'edit_product' product.id %}" aria-label="edit product">Edit</a> | 
-                                                    <a class="text-danger" href="{% url 'delete_product' product.id %}" aria-label="delete product">Delete</a>
+                                                    <a href="{% url 'edit_product' product.id %}" aria-label="edit product" class="grey-underline">Edit</a> | 
+                                                    <a class="grey-underline" href="{% url 'delete_product' product.id %}" aria-label="delete product">Delete</a>
                                                 </p>
                                             {% endif %}
                                         </div>
