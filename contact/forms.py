@@ -14,4 +14,3 @@ class ContactForm(forms.ModelForm):
         self.fields['message'].widget.attrs.update(
             {'placeholder': 'Your Message'}
             )
-

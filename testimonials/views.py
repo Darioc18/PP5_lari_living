@@ -7,6 +7,7 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Testimonial
 from .forms import TestimonialForm
 
+
 class TestimonialListView(ListView):
     """
     View to display a list of testimonials.
@@ -15,7 +16,10 @@ class TestimonialListView(ListView):
     template_name = 'testimonials/testimonial_list.html'
     context_object_name = 'testimonials'
 
-class TestimonialCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+
+class TestimonialCreateView(LoginRequiredMixin,
+                            SuccessMessageMixin,
+                            CreateView):
     """
     View to create a new testimonial.
     """
@@ -28,10 +32,11 @@ class TestimonialCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView)
     def dispatch(self, request, *args, **kwargs):
         """
         Method to check if the user has already submitted a testimonial.
-        If yes, redirects the user to the testimonial list page with a warning message.
-        """        
+        If yes, redirects the user to the testimonial list page.
+        """
         if Testimonial.objects.filter(user=self.request.user).exists():
-            messages.warning(self.request, "You have already added one testimonial.")
+            messages.warning(
+                self.request, "You have already added one testimonial.")
             return redirect('testimonial_list')
         return super().dispatch(request, *args, **kwargs)
 
@@ -39,7 +44,9 @@ class TestimonialCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView)
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class TestimonialUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, UpdateView):
+
+class TestimonialUpdateView(LoginRequiredMixin, UserPassesTestMixin,
+                            SuccessMessageMixin, UpdateView):
     """
     View to edit a testimonial.
     """
@@ -51,12 +58,17 @@ class TestimonialUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMess
 
     def test_func(self):
         """
-        Check if the current user is the owner of the testimonial or the superuser.
+        Check if the current user is the owner of the testimonial or superuser.
         """
         testimonial = self.get_object()
-        return self.request.user or self.request.user.is_superuser == testimonial.user
+        return (
+            self.request.user or
+            self.request.user.is_superuser == testimonial.user)
 
-class TestimonialDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
+
+class TestimonialDeleteView(LoginRequiredMixin,
+                            SuccessMessageMixin,
+                            DeleteView):
     """
     View to delete a testimonial.
     """
@@ -67,14 +79,18 @@ class TestimonialDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView)
 
     def test_func(self):
         """
-        Check if the current user is the owner of the testimonial or the superuser.
+        Check if the current user is the owner of the testimonial or superuser.
         """
         testimonial = self.get_object()
-        return self.request.user or self.request.user.is_superuser == testimonial.user
+        return (
+            self.request.user or
+            self.request.user.is_superuser == testimonial.user)
 
     def delete(self, request, *args, **kwargs):
         """
         Deletes the testimonial and displays a success message.
         """
         messages.success(self.request, self.success_message)
-        return super(TestimonialDeleteView, self).delete(request, *args, **kwargs)
+        return super(TestimonialDeleteView, self).delete(
+            request, *args, **kwargs
+            )
