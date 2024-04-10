@@ -58,7 +58,7 @@ This design ensures an intuitive browsing experience for Lari Living's customers
 
 #### EPIC | Newsletter
 - **User Story: Store owner: send newsletter [#15](https://github.com/Darioc18/PP5_lari_living/issues/15)** - As a store owner I can send out a newsletter via email so that I keep customers updated with news and events about my store.
-- **User Story: Store owner: unsuscribe from newsletter [#16](https://github.com/Darioc18/PP5_lari_living/issues/16)** - As a store owner I can unsubscribe subscribers from newsletter.
+- **User Story: Store owner: unsubscribe from newsletter [#16](https://github.com/Darioc18/PP5_lari_living/issues/16)** - As a store owner I can unsubscribe subscribers from newsletter.
 - **User Story: Site user: newsletter subscription [#17](https://github.com/Darioc18/PP5_lari_living/issues/17)** - As a site user I can sign up for the website's newsletter so that I can keep up to date with new products, promotions, and events.
 - **User Story: Site user: unsubscribe from newsletter [#18](https://github.com/Darioc18/PP5_lari_living/issues/18)** - As a site user I can unsubscribe from newsletter so that I don't receive store newsletters anymore.
 
@@ -85,27 +85,35 @@ This design ensures an intuitive browsing experience for Lari Living's customers
 - **User Story: Receive email confirmation post checkout [#37](https://github.com/Darioc18/PP5_lari_living/issues/37)** - As a shopper I can receive an email confirmation after checking out so that I can keep the confirmation of what I have purchased for my records.
 
 ## Design
-In the CSS file, variables were used to keep color definitions consistent across the entire stylesheet. This approach simplifies color updates throughout the website by adjusting the color once in the variable, maintaining design uniformity.
+In the CSS file, variables are used to keep color definitions consistent across the entire stylesheet. This approach simplifies color updates throughout the website by adjusting the color once in the variable, maintaining design uniformity.
 
-Attention was also given to ensuring a clear contrast between background colors and text at all times, improving user accessibility.
+Attention is also given to ensuring a clear contrast between background colors and text at all times, improving user accessibility.
 ### Colour Scheme
 The design is clean and utilizes three neutral colors strategically to draw attention to the color and forms of the products.
 Colour palette from [Coolors](https://coolors.co/)
 ![Colour Palette](documentation/readme_images/design/colour_palette.png)
 
  ### Imagery
- A minimalist hero image was employed to convey a sense of elegance and luxury, without overwhelming the viewer. The simplicity of the design allows the focus to remain on the features of the website enhancing the general visual appeal.
+ A minimalist hero image was chosen to convey a sense of elegance and luxury, without overwhelming the viewer. The simplicity of the design allows the focus to remain on the features of the website enhancing the general visual appeal.
 
-The logo was designed with sinuous lines that evoke the image of a figure reclining comfortably. Placing the name of the brand atop the design adds to its sophistication while ensuring clarity and brand recognition. This logo design captures the essence of Lari Living's ethos, subtly communicating luxury and comfort.
+### Logo
+
+The logo is designed with sinuous lines that evoke the image of a figure reclining comfortably. Placing the name of the brand atop the design, adds to its sophistication while ensuring clarity and brand recognition. This logo design captures the essence of Lari Living's ethos, subtly communicating luxury and comfort.
 
 ![Logo Design](documentation/readme_images/design/logo_design.jpg)
 
-## Typography
+### Favicon
+
+A favicon was designed to appear in the browser tab. It incorporates the logo within a circular shape with inverted colors, and the initials of the store's name are positioned on top.
+
+![Favicon](documentation/readme_images/design/favicon.png)
+
+### Typography
 The chosen font, used throughout the website, brings a modern and vibrant feel to the brand's image, without being too rigid and adding to its contemporary appeal: [Poppins](https://fonts.google.com/specimen/Poppins) Google font.
 
 ![Font](documentation/readme_images/design/font.jpg)
 
-## Wireframes
+### Wireframes
 
 Wireframes were created using [Balsamiq](https://balsamiq.com/).
 
@@ -187,17 +195,17 @@ Comprehensive form validation mechanisms have been implemented. In the event of 
 
 ### User Authentication
 
-In instances where Django's Class-based-views were utilized, the LoginRequiredMixin was implemented to make sure that requests to access secure pages by non-authenticated users are redirected to the login page.
+In instances where Django's Class-based-views are utilized, the LoginRequiredMixin is implemented to make sure that requests to access secure pages by non-authenticated users are redirected to the login page.
 
-For function-based views, Django's login_required and user_passes_test decorators were utilized to restrict access as necessary. These decorators ensure that only authenticated users are able to access certain functionalities, and that access is further limited based on specific conditions or permissions.
+For function-based views, Django's *login_required* decorator is utilized to restrict access as necessary. These decorators ensure that only authenticated users are able to access certain functionalities, and that access is further limited based on specific conditions or permissions.
 
-To restrict access to non-authorized users, the following code snippet was used in certain instances:
+To restrict access to non-authorized users, the following code snippet is used in certain instances:
 ```
 if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 ```
-###  Error Page
+### Custom Error Page
 
 Custom error page 404 was created to give the user more information on the error and to provide them with buttons to guide them back to the site.
 
@@ -217,8 +225,335 @@ The website employs CSRF tokens on all forms across the site, adding an extra la
 
 [Back to Contents](#table-of-contents)
 
+## Features
+
+The header and footer sections are consistently displayed across all pages of the website for seamless navigation and continuity in design.
+
+Icons and links directing to other pages within or outside the website are easily identifiable as they change colors when hovered over, providing visual feedback to users. This design choice makes navigation intuitive for the user.
+
+<details>
+<summary>Hover Over Icons and Links</summary>
+
+![Hover Over Icons](documentation/readme_images/features/hover_over_icons.gif)
+</details>
+
+Toast messages are systematically displayed whenever a user initiates an action on the website, ensuring that users are promptly notified that their action has been received and processed.
+
+<details>
+<summary>Toast Message Example</summary>
+
+![Toast Message Example](documentation/readme_images/features/toast_sign_out_message.jpg)
+</details>
+
+### Header
+
+#### Header on Large Screens
+
+![Header](documentation/readme_images/features/header.jpg)
+
+The header for large screens is featuring the logo clickable to always return to the home page, a search bar, a navigation bar with the links to the main pages of the website (Products, Testimonials, Contact Us) and two icons to the right to access the profile info and the bag.
+
+#### Header on Mobiles
+
+![Mobile Header](documentation/readme_images/features/mobile_header.jpg)
+
+In the mobile header the navigation bar is contained within a hamburger menu and the search bar is reduced to an icon as the profile and bag icons, optimizing space and maintaining a clean layout. These design choices adhere to the principles of responsive design, for optimal user experience across various devices.
+
+![Mobile Header](documentation/readme_images/features/mobile_navbar.jpg)
+
+#### User Icon
+
+The User icon navigation link functions as a dropdown menu, incorporating Sign up and Log in links. Upon signing in, the user's username is displayed next to the user icon. The Sign up or Log in options transition to a Log out option once the user has logged in. Furthermore, upon signing in, the 'My Profile' option becomes accessible within the User dropdown menu, providing users with convenient access to their profile information.
+
+<details>
+<summary>User Login</summary>
+
+![User Login](documentation/readme_images/features/user_menu.jpg)
+</details>
+
+<details>
+<summary>User Menu</summary>
+
+![User Menu](documentation/readme_images/features/signed_in_user.jpg)
+</details>
+
+If the superuser has signed in, additional options are available: *Product Management* and *Newsletter*
+
+<details>
+<summary>Superuser Menu</summary>
+
+![Admin Menu](documentation/readme_images/features/signed_in_admin.jpg)
+</details>
+
+#### Bag Icon
+
+When a product is added to the bag, a numerical indicator displaying the total quantity of items appears, positioned at the top right of the bag icon. As users add products to their bag, a toast message emerges in the top right-hand corner of the screen, notifying users that the item has been added. This toast message provides users with a brief overview of the bag contents and the total cost of the bag.
+Clicking the bag icon redirects the user to the shopping bag page, where a summary of the items added to the bag is displayed.
+
+<details>
+<summary>Bag Toast Message</summary>
+
+![Bag Toast Message](documentation/readme_images/features/toast_bag.jpg)
+</details>
+
+### Footer
+
+#### Footer on Large Screens
+
+![Large Screen Footer](documentation/readme_images/features/footer.jpg)
+
+The footer is consistently displayed at the bottom of every page, featuring essential elements for user engagement and navigation.
+Included in the footer section are links to social media platforms such as Facebook, Instagram, and the GitHub repository.
+A custom newsletter signup section allows users to input their email address to subscribe to the monthly newsletter.
+The links section provides convenient access to key parts of the site, including *Products*, *Testimonials*, *Contact Us*, and *Privacy Policy*.
+Clicking on all external links opens the respective website in another tab, preventing users from being redirected away from the site.
+
+#### Footer on Mobile Screens
+
+On mobile devices, the footer is structured in a single column format, containing the same elements as on desktop. The logo of the website is included to provide users with a quick way to return to the homepage from any page they're on. This choice improve ease of navigation across different screen sizes.
+
+![Mobile Footer](documentation/readme_images/features/mobile_footer.jpg)
+
+### Home Page
+
+The home page features a prominent call-to-action section designed to encourage user engagement. Users are invited to either *Shop Now* or *Contact* the store. This section aims to capture the attention of visitors and prompt them to take action.
+
+![Home Page](documentation/readme_images/features/homepage.jpg)
+
+### User Account Pages
+
+Django Allauth was implemented to facilitate the Sign up, Log in, and Log out functionalities on the website. Success messages are displayed to inform users about their successful login or logout actions.
+
+During the Sign up process, users are required to verify their email address by clicking on the authentication link sent to the provided email address.
+
+In case a user forgets their password, they can use a password reset functionality by clicking on the *Forgot Password?* option on the login page. This functionality enables users to regain access to their accounts securely.
+
+All the allauth default templates have been styled to match the general design of the website by using both Bootstrap and CSS.
+
+<details>
+<summary>Sign Up</summary>
+
+![Sign Up](documentation/readme_images/features/register.jpg)
+</details>
+
+<details>
+<summary>Sign In</summary>
+
+![Sign In](documentation/readme_images/features/sign_in.jpg)
+</details>
+
+<details>
+<summary>Log Out</summary>
+
+![Log Out](documentation/readme_images/features/sign_out.jpg)
+</details>
+
+<details>
+<summary>Password Reset</summary>
+
+![Password Reset](documentation/readme_images/features/password_reset.jpg)
+</details>
+
+### Profile
+
+![Profile](documentation/readme_images/features/profile.jpg)
+
+The delivery details section serves as a section for storing the user's delivery address and phone number. This information is utilized to autofill the delivery address field during the order placement process, streamlining the checkout experience for users.
+
+Under *My Profile* page, the order history section is included. It presents users with a list of every order they have placed on the website. Within this section, a table is displayed showcasing key details including the order number, date of purchase, and the total amount spent. Users can conveniently navigate through their order history by clicking on the order number, which redirects them to a summary page providing detailed information about the selected order. This functionality allows users to easily track and review their past purchases.
+
+Upon clicking on a past order, the order details are listed, and a toast message notifies the user that the order is from a previous transaction. This feature ensures clarity for users, informing them about the status of their order and helping them navigate through their purchase history.
+
+![Order Details](documentation/readme_images/features/past_order_details.jpg)
+
+### Products
+
+![Products Page](documentation/readme_images/features/products_page.jpg)
+
+When users navigate to the *Products* section in the navbar, they find a dropdown menu presenting various categories such as *Sofas*, *Tables*, and *Chairs*. This menu serves as a convenient navigation tool, allowing users to explore specific product categories.
+
+Under each product image, users can find the name of the product, its price, and a link to the category it belongs to. For superusers, Edit and Delete functionalities are available, allowing convenient management of product listings.
+
+<details>
+<summary>Products Menu</summary>
+
+![Products Menu](documentation/readme_images/features/products_menu.jpg)
+</details>
+
+<details>
+<summary>Sort Box</summary>
+
+![Sort Box](documentation/readme_images/features/sort_box.jpg)
+</details>
+
+### Product Detail
+
+![Product Details](documentation/readme_images/features/product_detail_page.jpg)
+
+When the user clicks on an individual product card, they are directed to the full product details page.
+
+The product detail page showcases the product image, title, price, and product details. If the user is a superuser, edit and delete buttons appear below these details, providing convenient management options.
+
+Situated underneath the product details, the quantity buttons are used to add items to the bag. The plus and minus buttons increase and decrease the input value, respectively. The minus quantity button is disabled when the value is set to 1, and the plus button is disabled when a site user tries to purchase more than 15 units.
+If the user manually inputs a negative number or a number exceeding 99 and clicks "Add to Bag", an error message will appear, informing the user of the required parameters for successful submission.
+
+Two buttons at the bottom invite the user to add the item to the bag or to go back to the product section to continue shopping.
+
+### Product Management
+
+#### Add Product
+
+![Add Product Page](documentation/readme_images/features/add_product.jpg)
+
+The add product page is accessible by clicking the 'Add Product' button on the Home Decor page or in the user dropdown menu, specifically under Home Decor Management. These options are exclusively visible to superusers.
+
+In case a non-superuser attempts to access the add product page (e.g., by changing the URL), they are redirected to a custom 403 page, preventing unauthorized access.
+
+To successfully submit the add product form, users must fill out all fields marked with an asterisk. If any required fields are left blank or contain only whitespace upon submission, an error message appears above the respective field, alerting the user to the issue.
+
+Furthermore, the SKU field must be unique. If the entered SKU already exists in the database, an error message is displayed.
+
+Additionally, if a price with more than 6 digits is entered, the form submission fails, and an error message appears under the price field.
+
+Users have the option to upload a photo of the product. If no photo is uploaded, a default image is displayed as the product image.
+
+Upon clicking the 'Add Product' button at the bottom of the form, the product is created, provided there are no errors on the form. Users receive a success message notifying them that the product has been successfully added.
+
+#### Edit Product
+
+![Edit Product Page](documentation/readme_images/features/edit_product.jpg)
+
+Superusers have the option to edit a product by clicking the edit button on the product card or on the product detail page. Upon clicking, the form opens with all fields populated with the original content.
+
+The image field displays a thumbnail of the existing image and includes a checkbox option to remove it. If checked, the image is changed to the default image.
+
+In case a non-superuser attempts to access the edit product page (e.g., by changing the URL), an error message is displayed notifying that only the superuser can access this function.
+
+Upon successful update of the product, the superuser receives a success message notifying them that the product has been successfully updated.
+
+#### Delete Product
+
+![Delete Product Page](documentation/readme_images/features/delete_product.jpg)
+
+Superusers have the option to delete a product by clicking the delete button on the product card or on the product detail page. Upon clicking, the superuser is prompted to confirm if they wish to delete the product or cancel the action.
+
+After confirming the deletion, the superuser receives a success message notifying them that the product has been successfully deleted. This confirmation message provides reassurance and confirmation of the action taken.
+
+### Bag
+
+![Bag Page](documentation/readme_images/features/bag_page.jpg)
+
+When the user clicks on the shopping bag icon in the navbar, they are directed to the shopping bag page, where they can view the products they have added to their cart. The page displays each product's name, unit price, quantity, and subtotal.
+
+The quantity input box indicates the quantity of the product added to the bag. Plus and minus buttons allow users to increase and decrease the input value, respectively.
+
+Clicking the *Update* icon button saves any changes to the quantity and updates the item's subtotal. Clicking the *Remove* button removes the item completely from the user's bag. If the user manually inputs a negative number and clicks *Update*, the item is removed from the bag.
+
+At the end of the line items, a summary of the costs is provided. The summary includes the bag's total, delivery cost, and the grand total to pay. Beneath the grand total, users find a message informing them of how much more they need to spend to receive free delivery if they haven't already met the free delivery threshold set to €1500. Two buttons are provided beneath the grand total. From here, users can either continue to the checkout or return to the products page by clicking *Keep Shopping*.
+
+### Checkout
+
+![Checkout Page](documentation/readme_images/features/checkout_page.jpg)
+
+#### Details:
+
+Within the details section, users can fill out their contact details, delivery address, and card number. If the user is a guest, a link to create an account or login will be present. For signed-in users, a checkbox to save the delivery information can be checked. If the user is signed in and has delivery information saved, the details and email address will be automatically filled in. Error messages prompt the user to *Fill in the field* or *match the format requested* if they leave a required field empty, input whitespace in a required field, or include text in the phone number field.
+
+#### Order Summary:
+
+The order summary section provides a detailed overview of all items about to be purchased, including the quantity, subtotal, and grand total. Next to the order summary title is a number reflecting the total number of items in the order. Clicking the product image in the summary takes the user to that product's detail page.
+
+#### Payment:
+
+Card payment is securely handled by Stripe. Incorrect card numbers automatically prompt an invalid card number error. A loading screen appears during payment processing to prevent users from clicking away. A warning message at the bottom of the page informs the user of the amount their card is about to be charged. If the payment form doesn't submit properly or the user closes the browser during the wait animation, the order is still created in the database through the webhook. Once payment is processed, the webhook searches the database to confirm the order exists. If it cannot find it, it creates one using the payment information.
+
+#### Confirmation:
+
+Once the order is processed, the user is redirected to the checkout success page, summarizing the completed order. An email with the order confirmation is sent to the user. At the end of the summary is a *Keep Shopping* button, which takes the user back to the products page.
+
+![Order Confirmation](documentation/readme_images/features/order_confirmation.jpg)
+
+### Testimonials
+
+![Testimonials Page](documentation/readme_images/features/testimonials_page.jpg)
+
+A section for users to leave a testimonial has been included.
+The page is accessible by clicking the link in the navbar. Upon navigation to the Testimonials page, users can view all testimonials left by previous clients. Each testimonial displays the date, and the user's name.
+
+Users have the capability to edit and delete their own testimonials. To prevent spam on the page, users are restricted to adding only one testimonial.
+The superuser possesses the authority to edit or delete testimonials to moderate this section effectively. This setup ensures the integrity and quality of testimonials displayed on the page.
+
+#### Add Testimonial
+
+When a logged-in user clicks on the *Share Your Experience* button on the Testimonials page, they encounter a user-friendly form where they can add a new testimonial to the site. If the user is not logged in, the button is not displayed. This ensures that only logged-in users can access the functionality to add testimonials, maintaining security and preventing unauthorized submissions. The completed testimonial is automatically populated with the user's username and date underneath the body.
+
+<details>
+<summary>Add Testimonial</summary>
+
+![Add Testimonial](documentation/readme_images/features/testimonials_add.jpg)
+</details>
+
+#### Edit Testimonial
+
+Users are able to edit their own testimonials by clicking the edit button displayed beside their testimonial on the Testimonials Page. The edit form fields are pre-populated with the existing testimonial text. Upon successful update, the user receives a success message notifying them that the testimonial has been successfully updated.
+
+<details>
+<summary>Edit Testimonial</summary>
+
+![Edit Testimonial](documentation/readme_images/features/testimonials_edit.jpg)
+</details>
+
+#### Delete Testimonial
+
+Users can choose to delete their own testimonial by clicking the delete button displayed beside their testimonial on the Testimonials Page. They are asked to confirm if they wish to delete the testimonial or cancel. Upon deletion, the user receives a success message.
+
+<details>
+<summary>Delete Testimonial</summary>
+
+![Delete Testimonial](documentation/readme_images/features/testimonials_delete.jpg)
+</details>
+
+### Contact Section
+
+![Contact Form](documentation/readme_images/features/contact_form.jpg)
+
+From the navbar, users can access the *Contact Us* section, where they have the option to send an email to the pre-set website email address. Within this section, users can select a subject from the dropdown menu and fill in the message field. Given that the website specializes in selling high-end furniture, a high volume of queries from customers is expected. Therefore, having a contact section is essential for the success of the business, as it provides customers with a convenient means of communication.
+Upon submitting the form, the user receives a message confirming that the message has been sent successfully.
+An email account specific for the store has been created to receive messages. And the functionality has been tested.
+
+<details>
+<summary>Email Received</summary>
+
+![Email Received](documentation/readme_images/features/email_received.jpg)
+</details>
+
+### Newsletter
+
+A custom model has been created fot the newsletter.
+
+#### Subscription Form
+
+![Newsletter Subscription Form](documentation/readme_images/features/newsletter_subscription_form.jpg)
+
+A subscription form is available for users in the footer, so that at any time during the navigation the user can subscribe. When a user subscribe a success message is displayed to inform the user that he subscribed successfully.
+
+#### Newsletter Management
+
+![Newsletter Management Form](documentation/readme_images/features/newsletter_management_form.jpg)
+
+The superuser can send a newsletter to all subscribed users by accessing it from the profile icon. When on the newsletter page, the superuser can send an email that will be received by everyone in the newsletter. Special attention has been given to ensure that subscribers' details are not displayed in the newsletter emails, maintaining their privacy and confidentiality.
+Upon submitting the form, the superuser receives a message confirming that the message has been sent successfully to the mailing list.
+An email account specific for the store has been created to send messages. And the functionality has been tested.
+
+<details>
+<summary>Newsletter Email Test</summary>
+
+![Newsletter Email Test #1](documentation/readme_images/features/newsletter_email_test.jpg.jpg)
+![Newsletter Email Test #2](documentation/readme_images/features/newsletter_email_test2.jpg.jpg)
+</details>
 
 ## Payments with Stripe
+
 This website is for educational purposes only, and users should refrain from entering personal credit/debit card details. Use these details for testing purposes:
 
 - Card number: 4242 4242 4242 4242
