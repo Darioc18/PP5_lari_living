@@ -642,3 +642,48 @@ These decisions are made with consideration for feature necessity, development t
 Testing and results can be found [here](TESTING.md)
 
 [Back to Contents](#table-of-contents)
+
+## Technologies Used
+
+### Languages
+
+- [HTML5]
+- [CSS3]
+- [JavaScript]
+- [Python]
+
+### Databases
+
+- [ElephantSQL](https://www.elephantsql.com/) - Postgres database
+- [AWS](https://aws.amazon.com/) - Cloud static/media file storage
+
+### Frameworks
+
+- [Django](https://www.djangoproject.com/) - Python framework
+- [Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/) - CSS Framework for developing responsiveness and styling.
+
+### Other Programs and Applications
+
+- [VS Code](https://code.visualstudio.com/) - IDE used to create the project.
+- [GitHub](https://github.com/) - Used for version control, and agile development.
+- [Heroku](https://www.heroku.com/) - Used to deploy the project.
+- [Django-allauth](https://pypi.org/project/django-allauth/) - Authentication library to manage the user accounts.
+- [PostgreSQL](https://www.postgresql.org/) - Used as the database for this project.
+- [Stripe](https://stripe.com/ie) - Used for the payments processing.
+- [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Used for Django forms.
+- [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - Used to troubleshoot and test features, check responsiveness and styling.
+- [Google Fonts](https://fonts.google.com/) - Used to import the selected font.
+- [Balsamiq](https://balsamiq.com/) - Used to create Wireframes.
+- [Photoshop](https://www.adobe.com/products/photoshop.html) - To create the logo, favicon, and edit images.
+- [Lucidchart](https://lucid.app/documents#/dashboard) - Used to create the database model design.
+- [Coolors](https://coolors.co/) - Used to create and display color palette.
+- [Font Awesome](https://fontawesome.com/) - Used to import icons.
+- [W3C](https://www.w3.org/) - Used for HTML & CSS Validation.
+- [Code Institute Python Linter](https://pep8ci.herokuapp.com/) - Used to verify code conformity with PEP8.
+- [Jshint](https://jshint.com/) - Used to validate Javascript.
+- [Am I Responsive](https://ui.dev/amiresponsive) - Used to display the website image across various devices.
+- [Tables Generator](https://www.tablesgenerator.com/markdown_tables) - Used to convert excel testing tables to markdown.
+- [Sitemap Generator](www.xml-sitemaps.com) - Used to create sitemap.xml .
+- [Privacy Policy Generator](https://www.privacypolicygenerator.info/) - To generate privacy policy.
+
+[Back to Contents](#contents)
