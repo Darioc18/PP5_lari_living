@@ -328,7 +328,7 @@ Clicking the bag icon redirects the user to the shopping bag page, where a summa
 
 The footer is consistently displayed at the bottom of every page, featuring essential elements for user engagement and navigation.
 Included in the footer section are links to social media platforms such as Facebook, Instagram, and the GitHub repository.
-A custom newsletter signup section allows users to input their email address to subscribe to the monthly newsletter.
+A custom newsletter sign-up section allows users to input their email address to subscribe to the monthly newsletter.
 The links section provides convenient access to key parts of the site, including *Products*, *Testimonials*, *Contact Us*, and *Privacy Policy*.
 Clicking on all external links opens the respective website in another tab, preventing users from being redirected away from the site.
 
@@ -826,7 +826,7 @@ Once you've created an AWS account and logged-in, make sure you're on the *AWS M
         }
         ```
 
-    - On the next page add polcity name (e.g. `lari-living-policy`) and description and click create policy.
+    - On the next page add policy name (e.g. `lari-living-policy`) and description and click create policy.
     - From *User Groups* in the left-hand menu, click your user group name created during the above step and select the permissions tab.
     - Click *Attach Policy*.
     - Search for the policy you've just created and select it, then *Attach Policy*.
@@ -921,6 +921,8 @@ To clone the repository:
 6. Type git clone, and then paste the URL you copied earlier.
 7. Press Enter. Your local clone will be created.
 
+[Back to Contents](#table-of-contents)
+
 ## Credits
 
 ### Code
@@ -933,6 +935,10 @@ To clone the repository:
 - [W3Schools](https://www.w3schools.com/)
 - [Stack Overflow](https://stackoverflow.com/)
 
-## Aknowledgments
+[Back to Contents](#table-of-contents)
+
+## Acknowledgments
 
 I want to express my gratitude to my fellow peers from the April 2023 cohort at Code Institute and to my Code Institute mentor, [Iuliia Konovalova](https://github.com/IuliiaKonovalova) for her guidance and clear advice to build this project.
+
+[Back to Contents](#table-of-contents)
