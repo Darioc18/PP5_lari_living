@@ -29,6 +29,68 @@ Back to Lari Living [README.md](README.md).
     - [Contact](#contact)
 - [Bugs](#bugs)
 
+## User Story Testing
+
+The users stories can be found in the GitHub Projects [kanban board](https://github.com/users/Darioc18/projects/4/views/1), created for this application.
+
+**EPIC | Registration and User Accounts**
+
+| User Story | Notes | Result |
+|------------|-------|--------|
+|As a site user I can easily register for an account so that I can have a personal account and I can view my profile.| Allauth has been implemented to enable users to manage their accounts efficiently.| Pass |
+|As a site user I can easily login or logout so that I can access my personal account information.|Allauth provides login and logout functionality for the application.| Pass |
+|As a site user I can easily recover my password in case I forget it so that I can recover access to my account.|Allauth provides password reset functionality.|Pass|
+|As a site user I can receive an email confirmation after registering so that I can verify that my account registration was successful.|
+Upon registration, the user receives a confirmation link to finalize the sign-up process.|Pass|
+|As a site user I can have a personalized user profile so that I can view my personal order history and order confirmations, and save my payments information.|A profile page is easily accessible from the header. On this page, users can save their details for future purchases and track their order history.|Pass|
+
+**EPIC | Admin & Store Management**
+
+| User Story | Notes | Result |
+|------------|-------|--------|
+|As a store owner I can add/edit/delete products through an easy-to-use interface so that I can manage the store's contents.|The superuser can oversee product management through a designated link, allowing them to add new products. The products can be directly edited or deleted from both the products page and the individual product detail page.| Pass |
+
+**EPIC | Sorting and Searching**
+
+| User Story | Notes | Result |
+|------------|-------|--------|
+|As a shopper I can sort the list of available products so that I can identify the best priced and categorically sorted products.|A sorting feature is available on the products page, enabling users to sort products by price or name. Users can also sort products by category by clicking on the products dropdown in the navigation bar.| Pass |
+|As a shopper I can sort a specific category of products so that I can find the best price products in a specific category, or sort the products in that category by name.|
+Users can sort products by category by clicking on the products dropdown in the navigation bar.| Pass |
+|As a shopper I can search for a product by name or description so that I can find a specific product I'd like to purchase.|A search bar is consistently positioned at the top of the screen, allowing users to input the name of the item they are looking for.| Pass |
+|As a shopper I can easily see what I've searched for and the number of results so that I can quickly decide whether the product I want is available.|Upon entering a keyword in the search bar, a number of products containing the word in their title or description are displayed.| Pass |
+
+**EPIC | Newsletter**
+
+| User Story | Notes | Result |
+|------------|-------|--------|
+|As a store owner I can send out a newsletter via email so that I keep customers updated with news and events about my store.|The superuser has access to the newsletter page, where they can compose an email to send to the mailing list of subscribers.| Pass |
+|As a store owner I can unsubscribe subscribers from newsletter.|Currently, the superuser can only delete subscribers from the admin panel. However, a feature could be implemented in the future to display the list of subscribers on a page of the website. Alternatively, a marketing email tool such as Mailchimp could be implemented for newsletter management.| Pass |
+|As a site user I can sign up for the website's newsletter so that I can keep up to date with new products, promotions, and events.|A subscribe form is always visible in the footer allowing users to easily subscribe to the newsletter.| Pass |
+
+**EPIC | Contact**
+
+| User Story | Notes | Result |
+|------------|-------|--------|
+|As a site user I can easily find the contact form so that I can reach out to the company with any inquiries or issues.|The contact form is always visible in the header for easy access.| Pass |
+|As a site user I can use a simple and intuitive contact form with clear instructions so that I can quickly send my message without confusion.|The contact form offers a predefined subject, streamlining the user's input to only include their name, email, and message.| Pass |
+|As a site user I can receive a confirmation message after submitting the contact form so that I know my message has been successfully sent.|A confirmation message is displayed once the contact form is submitted| Pass |
+|As a site user I want the contact form to have built-in validation to prevent errors, such as submitting the form without filling in required fields or entering an invalid email address.|Error messages are promptly displayed when the user inputs invalid info (e.g., an invalid email or leaves fields blank) in the form.| Pass |
+|As a site user I can fill in fields for important information such as my name, email address, and the nature of my inquiry so that the company can respond effectively.|The contact form includes all of these fields.| Pass |
+
+**EPIC | Purchasing and Checkout**
+
+| User Story | Notes | Result |
+|------------|-------|--------|
+|As a shopper I can select and see the quantity of a product when purchasing it so that I don't accidentally select the wrong product quantity.|The quantity of products is always displayed in the shopping bag and in the toast messages when adding a product.| Pass |
+|As a shopper I can view items in my bag to be purchased so that I can identify the total cost of my purchase and all items I will receive.|The breakdown of costs, including the grand total, is visible in the shopping bag.| Pass |
+|As a shopper I can adjust the quantity of individual items in my bag so that I can easily make changes to my purchase before checkout.|Clear buttons are provided in the shopping bag to easily increase or decrease the quantity of products to be ordered.| Pass |
+|As a shopper I can easily enter my payment information so that I can checkout quickly and with no hassles.|The checkout form features placeholders that facilitate seamless payment completion for users.| Pass |
+|As a shopper I can view an order confirmation after checkout so that I can verify that I haven't made any mistakes.|After checkout, a message and an order confirmation page are displayed. Additionally, users receive an order confirmation via email.| Pass |
+|As a shopper I can receive an email confirmation after checking out so that I can keep the confirmation of what I have purchased for my records.|Users receive an email containing the order details and confirmation after making a purchase.| Pass |
+
+[Back to Contents](#table-of-contents)
+
 ## Code Validation
 
 ### HTML
