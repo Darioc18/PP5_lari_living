@@ -1,9 +1,12 @@
 # Lari Living Testing
 
+This document presents an outline of the testing methodologies utilized during the development of the Lari Living store.
+
+Back to Lari Living [README.md](README.md).
+
 ## Table of Contents
 
 - [User Story Testing](#user-story-testing)
-- [Site Administration](#site-administration)
 - [Code Validation](#code-validation)
     - [HTML](#html)
     - [CSS](#css)
@@ -11,6 +14,7 @@
     - [Python](#python)
     - [Lighthouse](#lighthouse)
 - [Browser Testing](#browser-testing)
+- [Device Testing](#device-testing) 
 - [Manual Testing](#manual-testing)
     - [Site Navigation](#site-navigation)
     - [Home Page](#home-page)
@@ -198,6 +202,18 @@ Lighthouse validation was used on all pages to assess performance, accessibility
 | Password Reset           |96|95|100|100|
 
 Notes: The score on the checkout page is influenced by the color of the placeholders in the fields and by the issue of repeating IDs discussed in the [HTML](#html) section. Typically, placeholders have a fainter color, so changing them has not been considered an option. It is foreseen that the score will increase to acceptable levels once the issue mentioned in the HTML section is resolved.
+
+[Back to Contents](#table-of-contents)
+
+## Browser Testing
+
+The website was tested on Google Chrome, Firefox, Edge and Safari browsers, with no issues noted.
+
+[Back to Contents](#table-of-contents)
+
+## Device Testing
+
+The website was tested on different devices and displays, including Desktop, Laptop, Android and Apple devices to check responsiveness across different screen sizes in both portrait and landscape modes. The website functioned as expected across all devices, demonstrating its responsiveness. The responsive design was checked using Chrome developer tools on multiple devices.
 
 [Back to Contents](#table-of-contents)
 
@@ -518,5 +534,20 @@ Notes: The score on the checkout page is influenced by the color of the placehol
 | Submit button(form valid)     | Click                 | Success message appears informing the superuser that the enquiry has been submitted | Pass      |
 | Submit button(form valid)     | Click                 | User receives confirmation email about their enquiry                                | Pass      |
 | Submit button(form valid)     | Click                 | Store owner receives email. The email has Subject: Enquiry Type, Body: Message      | Pass      |
+
+[Back to Contents](#table-of-contents)
+
+## Bugs
+
+Resolved bugs, along with explanations, have been documented within the GitHub Projects [kanban board](https://github.com/users/Darioc18/projects/4). These bugs have been labeled in red to distinguish them from other tasks:
+
+- Fixing navigation category links to display only selected category products. Issue [#9](https://github.com/Darioc18/PP5_lari_living/issues/9)
+- Sorting box not visible. Issue [#10](https://github.com/Darioc18/PP5_lari_living/issues/10)
+- Enforcing one-review-per-user policy. Issue [#19](https://github.com/Darioc18/PP5_lari_living/issues/19)
+- Duplicate email subscription. Issue [#30](https://github.com/Darioc18/PP5_lari_living/issues/10)
+- Newsletter form rendering issue. Issue [#38](https://github.com/Darioc18/PP5_lari_living/issues/38)
+- handling subscription errors with existing emails. Issue [#39](https://github.com/Darioc18/PP5_lari_living/issues/39)
+- Resolving 404 error when editing or deleting testimonials as superuser. Issue [#40](https://github.com/Darioc18/PP5_lari_living/issues/40)
+- Fixing newsletter recipient's access to subscriber emails. Issue [#41](https://github.com/Darioc18/PP5_lari_living/issues/41)
 
 [Back to Contents](#table-of-contents)
