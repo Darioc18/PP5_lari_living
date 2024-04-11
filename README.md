@@ -84,6 +84,8 @@ This design ensures an intuitive browsing experience for Lari Living's customers
 - **User Story: View order confirmation post checkout [#36](https://github.com/Darioc18/PP5_lari_living/issues/36)** - As a shopper I can view an order confirmation after checkout so that I can verify that I haven't made any mistakes.
 - **User Story: Receive email confirmation post checkout [#37](https://github.com/Darioc18/PP5_lari_living/issues/37)** - As a shopper I can receive an email confirmation after checking out so that I can keep the confirmation of what I have purchased for my records.
 
+[Back to Contents](#table-of-contents)
+
 ## Design
 In the CSS file, variables are used to keep color definitions consistent across the entire stylesheet. This approach simplifies color updates throughout the website by adjusting the color once in the variable, maintaining design uniformity.
 
@@ -165,6 +167,8 @@ Wireframes were created using [Balsamiq](https://balsamiq.com/).
 ![Contact](documentation/readme_images/design/wireframe_contacts.png)
 </details>
 
+[Back to Contents](#table-of-contents)
+
 ## Agile Methodology
 
 Agile methodology is an iterative and flexible approach to project management and software development that prioritizes adaptability, collaboration, and customer satisfaction. It emphasizes incremental progress, continuous feedback, and the ability to respond to changing requirements throughout the development process.
@@ -187,6 +191,8 @@ The MOSCOW method was employed for task prioritization, categorizing them into M
 ![MoSCoW & GitHub Kanban](documentation/readme_images/features/kanban_board.jpg)
 </details>
 
+[Back to Contents](#table-of-contents)
+
 ## Database Diagram
 
 The data model for Lari Living follows Object-Oriented Programming principles. SQLite was used as database during development, while Postgres was chosen for the Heroku-deployed version.
@@ -196,6 +202,8 @@ The data model for Lari Living follows Object-Oriented Programming principles. S
 An entity relationship diagram (ERD) was created using Lucidchart to visualize the relationships between different entities within the database:
 
 ![ERD](documentation/readme_images/features/erd.jpg)
+
+[Back to Contents](#table-of-contents)
 
 ## Defensive Design
 
@@ -217,12 +225,18 @@ if not request.user.is_superuser:
 ```
 ### Custom Error Page
 
-Custom error page 404 was created to give the user more information on the error and to provide them with buttons to guide them back to the site.
+Custom error page 404 and 500 were created to give the user more information on the error and to provide them with buttons to guide them back to the site.
 
 <details>
 <summary>Error 404 page</summary>
 
 ![Error 404 page](documentation/readme_images/features/error_404.JPG)
+</details>
+
+<details>
+<summary>Error 500 page</summary>
+
+![Error 500 page](documentation/readme_images/features/error_500.JPG)
 </details>
 
 ### Database Protection:
@@ -561,6 +575,8 @@ An email account specific for the store has been created to send messages. And t
 ![Newsletter Email Test #2](documentation/readme_images/features/newsletter_email_test2.jpg)
 </details>
 
+[Back to Contents](#table-of-contents)
+
 ## Payments with Stripe
 
 This website is for educational purposes only, and users should refrain from entering personal credit/debit card details. Use these details for testing purposes:
@@ -568,6 +584,8 @@ This website is for educational purposes only, and users should refrain from ent
 - Card number: 4242 4242 4242 4242
 - MM/YY: 04/24
 - CVC: 242
+
+[Back to Contents](#table-of-contents)
 
 ## Business Model
 
@@ -618,5 +636,9 @@ Currently, the application follows the model of free delivery over a certain thr
 
 These decisions are made with consideration for feature necessity, development time, and alignment with business operations.
 
+[Back to Contents](#table-of-contents)
+
 ## Testing
 Testing and results can be found [here](TESTING.md)
+
+[Back to Contents](#table-of-contents)
