@@ -40,8 +40,7 @@ The users stories can be found in the GitHub Projects [kanban board](https://git
 |As a site user I can easily register for an account so that I can have a personal account and I can view my profile.| Allauth has been implemented to enable users to manage their accounts efficiently.| Pass |
 |As a site user I can easily login or logout so that I can access my personal account information.|Allauth provides login and logout functionality for the application.| Pass |
 |As a site user I can easily recover my password in case I forget it so that I can recover access to my account.|Allauth provides password reset functionality.|Pass|
-|As a site user I can receive an email confirmation after registering so that I can verify that my account registration was successful.|
-Upon registration, the user receives a confirmation link to finalize the sign-up process.|Pass|
+|As a site user I can receive an email confirmation after registering so that I can verify that my account registration was successful.|Upon registration, a message is displayed and the user receives a confirmation link to finalize the sign-up process.|Pass|
 |As a site user I can have a personalized user profile so that I can view my personal order history and order confirmations, and save my payments information.|A profile page is easily accessible from the header. On this page, users can save their details for future purchases and track their order history.|Pass|
 
 **EPIC | Admin & Store Management**
@@ -55,8 +54,7 @@ Upon registration, the user receives a confirmation link to finalize the sign-up
 | User Story | Notes | Result |
 |------------|-------|--------|
 |As a shopper I can sort the list of available products so that I can identify the best priced and categorically sorted products.|A sorting feature is available on the products page, enabling users to sort products by price or name. Users can also sort products by category by clicking on the products dropdown in the navigation bar.| Pass |
-|As a shopper I can sort a specific category of products so that I can find the best price products in a specific category, or sort the products in that category by name.|
-Users can sort products by category by clicking on the products dropdown in the navigation bar.| Pass |
+|As a shopper I can sort a specific category of products so that I can find the best price products in a specific category, or sort the products in that category by name.|Users can sort products by category by clicking on the products dropdown in the navigation bar.| Pass |
 |As a shopper I can search for a product by name or description so that I can find a specific product I'd like to purchase.|A search bar is consistently positioned at the top of the screen, allowing users to input the name of the item they are looking for.| Pass |
 |As a shopper I can easily see what I've searched for and the number of results so that I can quickly decide whether the product I want is available.|Upon entering a keyword in the search bar, a number of products containing the word in their title or description are displayed.| Pass |
 
