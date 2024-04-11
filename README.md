@@ -677,6 +677,7 @@ Testing and results can be found [here](TESTING.md)
 - [Photoshop](https://www.adobe.com/products/photoshop.html) - To create the logo, favicon, and edit images.
 - [Lucidchart](https://lucid.app/documents#/dashboard) - Used to create the database model design.
 - [Coolors](https://coolors.co/) - Used to create and display color palette.
+- [ChatGPT](https://chat.openai.com/) - Used for Readme/Testing templates inspiration
 - [Font Awesome](https://fontawesome.com/) - Used to import icons.
 - [W3C](https://www.w3.org/) - Used for HTML & CSS Validation.
 - [Code Institute Python Linter](https://pep8ci.herokuapp.com/) - Used to verify code conformity with PEP8.
@@ -687,3 +688,251 @@ Testing and results can be found [here](TESTING.md)
 - [Privacy Policy Generator](https://www.privacypolicygenerator.info/) - To generate privacy policy.
 
 [Back to Contents](#contents)
+
+## Deployment
+
+Before deploying the application on Heroku, it is essential to update the requirements.txt file. This file contains a list of requirements necessary for the application to function.
+To generate the list of requirements, the command ```pip3 freeze > requirements.txt``` is used. Subsequently, the changes are committed and pushed to GitHub.
+Before pushing code to GitHub, it is crucial to ensure that all the sensitive credentials are stored in an env.py file, which is included in the .gitignore file. This instructs Git not to track this file, preventing it from being added to GitHub.
+
+### Deployment on Heroku
+- Navigate to the [Heroku](https://www.heroku.com/) dashboard, create a new app with a unique name and select a region.
+- Install Gunicorn, a production-ready webserver for Heroku. Add gunicorn to the requirements.txt file.
+- Navigate to the "Deploy" section in the navigation bar. Under *Deployment Method*, connect to GitHub by selecting the repository name.
+- Create a file named Procfile at the root directory of the project (same directory as requirements.txt).
+- In the Procfile, declare this is a web process followed by the command to execute your Django project: ```web: gunicorn my_project.wsgi```, where ```my_project``` is the name of the application, in this case *lari_living*.
+- Open the my_project/settings.py file and replace DEBUG=True with DEBUG=False.
+- In settings.py append the Heroku hostname to the ALLOWED_HOSTS list.
+- On Heroku click on the Deploy tab.
+- Set up the database on [ElephantSQL](https://www.elephantsql.com)
+- Modify settings.py file to retrieve the new sensitive credentials from the environment variables; e.g. ```SECRET_KEY = os.environ.get("SECRET_KEY")```
+- Navigate to the settings tab, then scroll down to Config Vars. Any files that should be hidden, such as credentials and API keys, should be included here. Credentials to keep safe for this project are:
+1. Django's secret key
+2. Database URL
+3. AWS access key
+3. AWS secret key
+4. Email host password
+5. Stripe public key
+6. stripe secret key
+7. Stripe wh secret
+- Scroll to the bottom of the deploy page and either click Enable Automatic Deploys for automatic deploys or Deploy Branch to deploy manually. Manually deployed branches will need re-deploying each time the repo is updated.
+- Click *View* to view the deployed site.
+
+
+### Connect the Postgres Database
+   - This project uses [ElephantSQL](https://www.elephantsql.com) for the PostgreSQL Database.
+   - Sign-up with your GitHub account, then follow these steps:
+     - Click *Create New Instance* to start a new database.
+     - Provide a name (lari_living).
+     - Select the *Tiny Turtle (Free)* plan.
+     - You can leave the *Tags* blank.
+     - Select the *Region* and *Data Center* closest to you.
+     - Once created, click on the new database name, where you can view the database URL and Password.
+    - Copy the DATABASE_URL in Config Vars in the Heroku Settings Tab.
+
+### Amazon AWS
+
+This project uses [AWS](https://aws.amazon.com) to store media and static files online.
+
+Once you've created an AWS account and logged-in, make sure you're on the *AWS Management Console* page. These are the steps to follow:
+1. **Create a new S3 bucket**
+    - Create a new bucket S3, give it a unique name (matching your Heroku app name), and choose the region closest to you.
+    - Uncheck *Block all public access*, and set the bucket will be public.
+    - From *Object Ownership*, select *ACLs enabled* to allow access to the objects in the bucket, and *Bucket owner preferred* selected.
+2.  **Edit bucket settings**
+    - Open the bucket page.
+    - From the *Properties* tab, turn on static website hosting, and type `index.html` and `error.html` in their respective fields, then click save.
+    - Navigate to the *Permissions* tab and scroll down to the *CORS configuration* section and click edit.
+    - Paste the following snippet into the text box and click on save changes:
+
+    ```
+    [
+        {
+            "AllowedHeaders": [
+                "Authorization"
+            ],
+            "AllowedMethods": [
+                "GET"
+            ],
+            "AllowedOrigins": [
+                "*"
+            ],
+            "ExposeHeaders": []
+        }
+    ]
+    ```
+
+    - Copy the *ARN* string.
+    - Navigate to the *Bucket Policy* section, select the *Policy Generator* link, and use the following settings:
+        - Policy Type: *S3 Bucket Policy*
+        - Effect: *Allow*
+        - Principal: `*`
+        - AWS Service: *Amazon S3*
+        - Actions: *GetObject*
+        - Amazon Resource Name (ARN): *paste-your-ARN-here*
+    - Click *Add Statement*
+    - Click *Generate Policy*
+    - Copy the entire Policy, and paste it into the *Bucket Policy Editor*
+
+    ```
+    {
+        "Id": "Policy1234567890",
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "Stmt1234567890",
+                "Action": [
+                    "s3:GetObject"
+                ],
+                "Effect": "Allow",
+                "Resource": "arn:aws:s3:::your-bucket-name/*"
+                "Principal": "*",
+            }
+        ]
+    }
+    ```
+
+    - Add "/*" to the end of the resource key to allow access to all resources in this bucket.
+    - Click *Save*.
+    - From the *Access Control List (ACL)* section, click "Edit" and enable *List for *Everyone (public access)*, and accept the warning box.
+    - If the edit button is disabled, you need to change the *Object Ownership* section above to *ACLs enabled* (refer to Create Bucket section above).
+  
+3. **IAM**
+
+    Back on the AWS Services Menu, search for and open *IAM* (Identity and Access Management).
+
+    - On the IAM page from *User Groups*, click *Create New Group*, add a name and click create group.
+    - Tags are optional, but you must click it to get to the review policy page.
+    - From *User Groups*, select your created group, and go to the *Permissions* tab.
+    - Open the *Add Permissions* dropdown, and click *Attach Policies*.
+    - Select the policy, then click *Add Permissions*.
+    - From the *JSON* tab, select the *Import Managed Policy* link.
+    - Search for *S3*, select the `AmazonS3FullAccess` policy, select it and then *Import*.
+    - Copy the ARN from the S3 Bucket again, and paste it into "Resources" key on the Policy.
+
+        ```shell
+        {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Action": "s3:*",
+                    "Resource": [
+                        "arn:aws:s3:::your-bucket-name",
+                        "arn:aws:s3:::your-bucket-name/*"
+                    ]
+                }
+            ]
+        }
+        ```
+
+    - On the next page add polcity name (e.g. `lari-living-policy`) and description and click create policy.
+    - From *User Groups* in the left-hand menu, click your user group name created during the above step and select the permissions tab.
+    - Click *Attach Policy*.
+    - Search for the policy you've just created and select it, then *Attach Policy*.
+    - From *User Groups*, click *Add User*.
+    - Enter a User name.
+    - For "Select AWS Access Type", select *Programmatic Access* and click next.
+    - Click on add user to group, select the user group created earlier and click create user.
+    - Take note of the Access key ID and Secret access key as these will be needed to connect to the S3 bucket.
+    - Click on *Download .csv* to save a copy of the access key on your system (this is the only chance to save them on your system)
+    - This contains the user's *Access key ID* and *Secret access key* to include in the Config Vars on Heroku.
+    - `AWS_ACCESS_KEY_ID` = **Access key ID**
+    - `AWS_SECRET_ACCESS_KEY` = **Secret access key**
+
+4. **Final AWS Setup**
+
+    - If Heroku Config Vars has `DISABLE_COLLECTSTATIC` still, this can be removed now, so that AWS will handle the static files.
+    - Inside *S3*, create a new folder called: `media`.
+    - Select media images for your project to be uploaded into the media folder.
+    - Under *Manage Public Permissions*, select *Grant public read access to this object(s)*.
+    - Click *Upload*.
+
+### Stripe API
+
+This project uses [Stripe](https://stripe.com) to process the ecommerce payments.
+
+- Create a Stripe account and log in.
+- Navigate to developers section
+- From the dashboard, click to expand the *Get your test API keys* and copy the following keys:
+  - `STRIPE_PUBLIC_KEY` 
+  - `STRIPE_SECRET_KEY`
+- As a backup, in case users prematurely close the purchase-order page during payment, we can include Stripe Webhooks.
+- From your Stripe dashboard, click *Developers*, and select *Webhooks*.
+- Click *Add Endpoint*.
+- This section requires a link to the deployed application (Heroku link)
+- Click *receive all events*.
+- Click *Add Endpoint* to complete the process.
+- You'll have a new key here to add to the Config vars on Heroku:
+  - `STRIPE_WH_SECRET`
+
+### Gmail API
+
+This project uses [Gmail](https://mail.google.com) to handle sending emails to users for account verification and purchase order confirmations.
+
+- Create a Gmail account and log in.
+- Click on the *Account Settings*.
+- Click on the *Accounts and Import* tab.
+- Within the section called "Change account settings", click on the link for *Other Google Account settings*.
+- From this new page, select *Security*.
+- Select *2-Step Verification* to turn it on.
+- Once verified, select *Turn On* for 2FA.
+- Navigate back to the *Security* page, and you'll see a new option called *App passwords*.
+- This might prompt you once again to confirm your password and account.
+- Select *Mail* for the app type.
+- Select *Other (Custom name)* for the device type and input any name.
+- A 16-character password (API key) will be generated that will need to be stored as `EMAIL_HOST_PASS` inside Heroku Config vars along with `EMAIL_HOST_USER` that is the Gmail email address
+
+### Local Deployment
+
+This project can be cloned or forked in order to make a local copy on your own system.
+
+- Access the GitHub repository.
+- Find the green Code button positioned above the list of files and click it.
+- From the dropdown menu, opt for "Download Zip."
+- Download and extract the zip file to run it in an editor of your choice.
+- Install any applicable packages found within the *requirements.txt* file: `pip3 install -r requirements.txt`.
+- Install PostgreSQL on your computer and open ports
+- Create an env.py file and input the environment variables
+- Start the Django app: `python manage.py runserver`
+- Stop the app once it's loaded: `CTRL+C` or `⌘+C` (Mac)
+- Make any necessary migrations: `python manage.py makemigrations`
+- Migrate the data to the database: `python manage.py migrate`
+- Create a superuser: `python manage.py createsuperuser`
+- Load fixtures (if applicable): `python3 manage.py loaddata file-name.json` (repeat for each file)
+- Everything should be ready now, run the Django app again: `python3 manage.py runserver`
+
+### Local Development
+
+To fork the repository:
+
+1.  Go to the [GitHub repository](https://github.com/Darioc18/PP5_lari_living);
+2.  In the top-right corner of the page, click *Fork*;
+3.  Optionally type the repository name and description;
+4.  Click the green button *Create fork*.
+
+To clone the repository:
+
+1. Go to the [GitHub repository](https://github.com/Darioc18/PP5_lari_living);
+2. Above the list of files, click the green button *Code*;
+3. Choose your preferred method for cloning: HTTPS, SSH, or Github CLI. Click the copy button to copy the URL to your clipboard.
+4. Open Git Bash.
+5. Change the current working directory to the location where you want the cloned directory.
+6. Type git clone, and then paste the URL you copied earlier.
+7. Press Enter. Your local clone will be created.
+
+## Credits
+
+### Code
+
+- Boutique Ado CI Walkthrough was used for the base of this project
+- [Code Institute Full Template](https://github.com/Code-Institute-Org/ci-full-template)
+- [Django Docs](https://docs.djangoproject.com/en/3.2/)
+- [Django All Auth Documentation](https://docs.allauth.org/en/latest/installation/quickstart.html)
+- [Bootstrap v4.6 Docs](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+- [W3Schools](https://www.w3schools.com/)
+- [Stack Overflow](https://stackoverflow.com/)
+
+## Aknowledgments
+
+I want to express my gratitude to my fellow peers from the April 2023 cohort at Code Institute and to my Code Institute mentor, [Iuliia Konovalova](https://github.com/IuliiaKonovalova) for her guidance and clear advice to build this project.
