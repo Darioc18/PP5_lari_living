@@ -934,8 +934,9 @@ To clone the repository:
 - [Bootstrap v4.6 Docs](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
 - [W3Schools](https://www.w3schools.com/)
 - [Stack Overflow](https://stackoverflow.com/)
+- Code from a tutorial by [KenBroTech](https://www.youtube.com/@KenBroTech) has been incorporated and readapted for the newsletter application.
 
-[Back to Contents](#table-of-contents)
+[Back to Contents](#table-of-contents) 
 
 ## Acknowledgments
 
