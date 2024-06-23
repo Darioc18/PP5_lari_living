@@ -392,7 +392,8 @@ The website was tested on different devices and displays, including Desktop, Lap
 | Login button(form valid)        | Click                                     | Redirect to home page                        | Pass      |
 | Login button(form valid)        | Click                                     | Success message confirming login appears     | Pass      |
 | Forgot Password Link            | Click                                     | Redirect to Password Reset page              | Pass      |
-| Email field                     | Leave empty/incorrect format              | On submit: form submit                       | Pass      |
+| Email field                     | Leave empty/incorrect format              | On submit: form won't submit                 | Pass      |
+| Email field                     | Insert correct email format               | On submit: form submit                       | Pass      |
 | Reset My Password Button        | Click                                     | Confirmation message that email sent         | Pass      |
 | Password Reset Email Link       | Click                                     | Open Change Password Page                    | Pass      |
 | Change Password Button          | Click                                     | Success message confirming Password Changed  | Pass      |
@@ -413,7 +414,6 @@ The website was tested on different devices and displays, including Desktop, Lap
 | If Searched Product             | Display | Only display products with search term in either the product's title or description or excerpt | Pass      |
 | If Searched Product             | Display | Display number of products found for "searched product"                                        | Pass      |
 | If Superuser in session:        |         |                                                                                                |           |
-| Add New Product Button          | Click   | Redirect to add product page                                                                   | Pass      |
 | Edit product link               | Click   | Redirect to edit product page                                                                  | Pass      |
 | Delete product link             | Click   | Open delete confirmation  page                                                                 | Pass      |
 | Confirm Delete -  cancel button | Click   | Redirect to products page                                                                      | Pass      |
@@ -425,7 +425,7 @@ The website was tested on different devices and displays, including Desktop, Lap
 
 | Element                  | Action                    | Expected Result                                                                              | Pass/Fail |
 |--------------------------|---------------------------|----------------------------------------------------------------------------------------------|-----------|
-| Product Content          | Display                   | Display correct product image, excerpt, price, product details and dispatch time frame       | Pass      |
+| Product Content          | Display                   | Display correct product image, excerpt, price, and product details                           | Pass      |
 | Qty control buttons      | Click                     | Increase/decrease quantity                                                                   | Pass      |
 | Qty control buttons      | Click                     | Minus button disabled if quantity is 1                                                       | Pass      |
 | Qty control buttons      | Click                     | Plus button disabled if quantity is 15                                                       | Pass      |
@@ -433,7 +433,7 @@ The website was tested on different devices and displays, including Desktop, Lap
 | Keep Shopping button     | Click                     | Redirect to products   page                                                                  | Pass      |
 | Add to bag button        | Click                     | Add item to bag                                                                              | Pass      |
 | Add to bag button        | Click                     | Toast Success appears                                                                        | Pass      |
-| Add to bag button        | Click                     | Product and quantity visible in toast success                                                | Pass      |
+| Add to bag button        | Click                     | Product, quantity and total visible in toast success                                         | Pass      |
 | If Superuser in session: |                           |                                                                                              |           |
 | Edit product link        | Click                     | Redirect to edit product page                                                                | Pass      |
 | Delete product link      | Click                     | Open delete confirmation  page                                                               | Pass      |
@@ -481,10 +481,6 @@ The website was tested on different devices and displays, including Desktop, Lap
 | Keep Shopping button                                          | Click               | Redirect to products page                              | Pass      |
 | Bag Items                                                     |                     |                                                        |           |
 | Qty control buttons                                           | Click               | Increase/decrease quantity                             | Pass      |
-| Qty control buttons                                           | Click               | Minus button disabled if quantity is 1                 | Pass      |
-| Qty control buttons                                           | Click               | Plus button disabled if quantity is 99                 | Pass      |
-| Qty control buttons                                           | Manually Input  >99 | Error message appears when refresh button is clicked   | Pass      |
-| Qty control buttons                                           | Manually Input  <1  | Shopping bag is emptied when refresh button is clicked | Pass      |
 | Update button                                                 | Click               | Update bag item quantity                               | Pass      |
 | Update button                                                 | Refresh Icon button | Updated confirmation toast appears                     | Pass      |
 | Remove button                                                 | Click               | Remove item from bag                                   | Pass      |
@@ -506,11 +502,8 @@ The website was tested on different devices and displays, including Desktop, Lap
 | Text Input(if required)             | Just whitespace                 | error message on invalid field(s)                                   | Pass      |
 | Text Input(if required)             | Fill in correctly               | On submit: form submits                                             | Pass      |
 | Phone number Input                  | Leave blank                     | On submit:form won't submit                                         | Pass      |
-| Phone number Input                  | Leave blank                     | error message on field                                              | Pass      |
 | Phone number Input                  | Just whitespace                 | On submit:form won't submit                                         | Pass      |
-| Phone number Input                  | Just whitespace                 | error message on field                                              | Pass      |
 | Phone number Input                  | Use non numeric characters      | On submit:form won't submit                                         | Pass      |
-| Phone number Input                  | Use non numeric characters      | error message on field                                              | Pass      |
 | Email Input                         | Leave blank                     | On submit:form won't submit                                         | Pass      |
 | Email Input                         | Leave blank                     | error message on field                                              | Pass      |
 | Email Input                         | Just whitespace                 | On submit:form won't submit                                         | Pass      |
@@ -534,10 +527,6 @@ The website was tested on different devices and displays, including Desktop, Lap
 | Complete Order button(form valid)   | Payment failed                  | Form won't submit                                                   | Pass      |
 | Complete Order button(form valid)   | Payment failed                  | Error message at bottom of form                                     | Pass      |
 | Complete Order button(form valid)   | Click                           | Success message appears confirming order successfully processed     | Pass      |
-| Complete Order button(form valid)   | Payment Requires authentication | Authentication box appears                                          | Pass      |
-| Fail Authentication button          | Click                           | Authentication box closes                                           | Pass      |
-| Fail Authentication button          | Click                           | User directed back to form                                          | Pass      |
-| Fail Authentication button          | Click                           | Error message at bottom of form                                     | Pass      |
 | Complete Authentication button      | Click                           | Loading screen reappears                                            | Pass      |
 | Complete Authentication button      | Click                           | Form submits                                                        | Pass      |
 | Complete Authentication button      | Click                           | Redirect to order confirmation page                                 | Pass      |
@@ -553,7 +542,7 @@ The website was tested on different devices and displays, including Desktop, Lap
 
 | Element                | Action            | Expected Result                                                                                                                | Pass/Fail |
 |------------------------|-------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------|
-| Open Profile Page      | Access            | If a user tries to access the profile page (by changing the url) without being signed in they are redirected to the login page | Pass      |
+| Open Profile Page      | Access            | If a user tries to access the profile page by changing the url without being signed in they are redirected to the login page   | Pass      |
 | Form fields            | On load           | fields populated with user default info(if previously saved)                                                                   | Pass      |
 | All input fields       | Leave blank       | On submit: form submits                                                                                                        | Pass      |
 | All input fields       | Just whitespace   | On submit: form submits                                                                                                        | Pass      |
@@ -571,15 +560,17 @@ The website was tested on different devices and displays, including Desktop, Lap
 
 ### Testimonials
 
-| Element                 | Action  | Expected Result                                                                    | Pass/Fail |
-|-------------------------|---------|------------------------------------------------------------------------------------|-----------|
-| Testimonial Content     | Display | Display correct testimonial content, service type, author and date                 | Pass      |
-| Add Testimonial button  | Click   | Open Add testimonial form                                                          | Pass      |
-| Add Testimonial button  | Click   | If a user has already added a testimonial they receive a warning message           | Pass      |
-| Add Testimonial button  | Display | If the user is not logged in the button is not displayed                           | Pass      |
-| Edit testimonial link   | Display | Only display if user is the author of the testimonial or if they are the superuser | Pass      |
-| Edit testimonial link   | Click   | Redirect to edit testimonial page                                                  | Pass      |
-| Delete Testimonial link | Display | Only display if user is the author of the testimonial                              | Pass      |
+| Element                 | Action  | Expected Result                                                                                                  | Pass/Fail |
+|--------------------------------------------------|--------------|------------------------------------------------------------------------------------|-----------|
+| Testimonial Content                              | Display      | Display correct testimonial content, service type, author and date                 | Pass      |
+| Add Testimonial button ("Share your experience") | Click        | Open Add testimonial form                                                          | Pass      |
+| Add Testimonial button ("Share your experience") | Click        | If a user has already added a testimonial they receive a warning message           | Pass      |
+| Add Testimonial button ("Share your experience") | Display      | If the user is not logged in the button is not displayed                           | Pass      |
+| Edit testimonial link                            | Display      | Only display if user is the author of the testimonial or if they are the superuser | Pass      |
+| Edit testimonial link                            | Click        | Redirect to edit testimonial page                                                  | Pass      |
+| Delete Testimonial link                          | Display      | Only display if user is the author of the testimonial                              | Pass      |
+| Edit Testimonial page                            | Save changes | Success message appears and user is redirect to Testimonials page                  | Pass      |
+| Edit Testimonial page                            | Cancel       | Redirect to Testimonials page                                                      | Pass      |
 
 ### Contact
 
@@ -592,7 +583,6 @@ The website was tested on different devices and displays, including Desktop, Lap
 | Submit button(form valid)     | Click                 | Form submit                                                                         | Pass      |
 | Submit button(form valid)     | Click                 | Redirect to home Page                                                               | Pass      |
 | Submit button(form valid)     | Click                 | Success message appears informing the superuser that the enquiry has been submitted | Pass      |
-| Submit button(form valid)     | Click                 | User receives confirmation email about their enquiry                                | Pass      |
 | Submit button(form valid)     | Click                 | Store owner receives email. The email has Subject: Enquiry Type, Body: Message      | Pass      |
 
 [Back to Contents](#table-of-contents)
